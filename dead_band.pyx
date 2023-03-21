@@ -28,7 +28,7 @@ def compress_dataframe_cython(df, last_valid_value=-99999999, last_valid_timesta
             diff_time = timestamps[i] - last_valid_timestamp
             diff_quality = qualities[i] - last_valid_quality
 
-            if abs(diff_time) > max_time or abs(diff) > dead_band or diff_quality != 0: 
+            if abs(diff_time) > max_time or abs(diff) > dead_band or diff_quality != 0:
                 if abs(diff_time) > min_time:
                     compressed_data.append([timestamps[i], values[i], qualities[i]])
                     last_valid_value = values[i]

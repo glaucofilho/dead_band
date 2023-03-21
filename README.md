@@ -9,7 +9,11 @@ pre-commit migrate-config
 pre-commit run --all-files
 
 
-# BUILD
+# BUILD LOCAL
+
+python setup.py build_ext --inplace
+
+# BUILD REMOTE
 
 python setup.py sdist bdist_wheel
 
