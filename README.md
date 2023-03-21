@@ -1,1 +1,1 @@
-# dead_band
+https://levelup.gitconnected.com/how-to-deploy-a-cython-package-to-pypi-8217a6581f09
