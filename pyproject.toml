@@ -1,0 +1,35 @@
+[project]
+name = "dead-band"
+version = "0.1.0"
+description = "Python library for implementing dead band"
+authors = [
+    {name = "glauco.filho",email = "glaucolmf@hotmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.9,<4"
+dependencies = [
+    "cython (>=3.0.12,<4.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.group.dev.dependencies]
+black = "^25.1.0"
+isort = "^6.0.1"
+flake8 = "^7.2.0"
+mypy = "^1.15.0"
+tox = "^4.25.0"
+pytest = "^8.3.5"
+pytest-cov = "^6.1.1"
+coverage = "^7.8.0"
+
+[tool.poetry]
+packages = [
+    { include = "src" }
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
