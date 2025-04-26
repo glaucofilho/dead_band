@@ -19,12 +19,10 @@ def get_coverage_percentage(coverage_file="./htmlcov/cov.xml"):
         return "0%"
 
 def generate_badges(python_version, coverage_percent):
-    version_clean = re.sub(r"[^\d\.]", "", python_version.split(",")[-1])
     badges = {
-        "Python Version": f"https://img.shields.io/badge/python-{version_clean}-blue.svg",
+        "Python Version": f"https://img.shields.io/badge/python-{python_version}-blue.svg",
         "Coverage": f"https://img.shields.io/badge/coverage-{coverage_percent.replace('%', '')}%25-brightgreen.svg",
         "License": "https://img.shields.io/badge/license-MIT-green.svg",  # Altere se necessário
-        "Build": "https://img.shields.io/github/actions/workflow/status/USER/REPO/python-app.yml?branch=main"
     }
     return "\n".join([f"![{k}]({v})" for k, v in badges.items()])
 
@@ -38,7 +36,7 @@ def generate_readme():
 
 {badges}
 
-Descrição curta do seu projeto.
+Lib Python com Cython para algoritmos de banda morta e similares, de modo a otimizar quantidade de dados trabalhados.s
 
 ## 🚀 Requirements
 
@@ -47,6 +45,6 @@ Descrição curta do seu projeto.
 """
     with open("README.md", "w") as readme_file:
         readme_file.write(readme_content)
-    print("README.md gerado com sucesso!")
+
 if __name__ == "__main__":
     generate_readme()
