@@ -1,20 +1,12 @@
-https://levelup.gitconnected.com/how-to-deploy-a-cython-package-to-pypi-8217a6581f09
+# 📦 dead_band
 
-# PRE-COMMIT
+![Python Version](https://img.shields.io/badge/python->=3.9,<4-blue.svg)
+![Coverage](https://img.shields.io/badge/coverage-100.0%25-brightgreen.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
 
-pre-commit install
+Lib Python com Cython para algoritmos de banda morta e similares, de modo a otimizar quantidade de dados trabalhados.s
 
-pre-commit migrate-config
+## 🚀 Requirements
 
-pre-commit run --all-files
+- Python >=3.9,<4
 
-
-# BUILD LOCAL
-
-python setup.py build_ext --inplace
-
-# BUILD REMOTE
-
-python setup.py sdist bdist_wheel
-
-python -m twine upload --repository pypi dist/*

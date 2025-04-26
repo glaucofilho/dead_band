@@ -1,2 +1,0 @@
-include dead_band.pyx
-include dead_band.c
