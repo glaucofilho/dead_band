@@ -33,4 +33,4 @@ jobs:
       - name: Run tox
         run: |
           PY_VERSION_NO_DOT=$(echo "${{ matrix.python-version }}" | tr -d .)
-          poetry run tox -e py${PY_VERSION_NO_DOT}
+          poetry run tox -e py${PY_VERSION_NO_DOT},mypy,flake8,black,isort
