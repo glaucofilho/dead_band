@@ -31,4 +31,6 @@ jobs:
         run: poetry install
 
       - name: Run tox
-        run: poetry run tox -e py${{ matrix.python-version | replace('.', '') }}
+        run: |
+          PY_VERSION_NO_DOT=$(echo "${{ matrix.python-version }}" | tr -d .)
+          poetry run tox -e py${PY_VERSION_NO_DOT}
