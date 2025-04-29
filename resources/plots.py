@@ -1,22 +1,22 @@
 import matplotlib.pyplot as plt
 
-def plotar_timeseries(series, file_name='grafico'):
+def plot_timeseries(series, file_name='plot'):
     """
-    Plota a série temporal de valores gerados.
+    Plots the generated time series of values.
     
     Args:
-        series (list): Lista de tuplas (valor: float, timestamp: datetime.datetime)
+        series (list): List of tuples (value: float, timestamp: datetime.datetime)
     """
-    valores = [item[0] for item in series]
-    tempos = [item[1] for item in series]
+    values = [item[0] for item in series]
+    times = [item[1] for item in series]
 
     fig, ax = plt.subplots(figsize=(12, 6))
     
-    ax.plot(tempos, valores, label="Valor", marker='o')
+    ax.plot(times, values, label="Value", marker='o')
 
     ax.set_xlabel("Timestamp")
-    ax.set_ylabel("Valor")
-    ax.set_title("Série Temporal Gerada")
+    ax.set_ylabel("Value")
+    ax.set_title("Generated Time Series")
     ax.legend()
     ax.grid(True)
     fig.autofmt_xdate()
