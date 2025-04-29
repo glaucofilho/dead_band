@@ -9,7 +9,9 @@ if __name__ == "__main__":
     seed = 42
     
     dados = generate_timeseries(seed, start, end)
-    dados_comprimidos = slow_deadband(dados, deadband_value=10, max_time_interval=30)
+    dados_comprimidos = slow_deadband(dados, 10, 30)
+    for dado in dados_comprimidos:
+        print(dado)
     print(len(dados))
     print(len(dados_comprimidos))
     plot_timeseries(dados)
