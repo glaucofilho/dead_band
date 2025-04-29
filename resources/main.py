@@ -8,4 +8,6 @@ if __name__ == "__main__":
     seed = 42
     
     dados = gerar_timeseries(seed, start, end)
+    for dado in dados:
+        print(dado)
     plotar_timeseries(dados)

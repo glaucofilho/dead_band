@@ -1,7 +1,7 @@
 import random
 import datetime
 
-def gerar_timeseries(seed, start_time, end_time, start_value=0, start_quality=0):
+def gerar_timeseries(seed, start_time, end_time, start_value=0, start_quality=1, bad_quality_weight=0.1):
     """
     Gera uma série temporal simulando leituras de sensores com variação contínua.
     
@@ -14,7 +14,8 @@ def gerar_timeseries(seed, start_time, end_time, start_value=0, start_quality=0)
         start_time (datetime.datetime): Timestamp inicial da série.
         end_time (datetime.datetime): Timestamp final da série.
         start_value (float, opcional): Valor inicial da série. Default é 0.
-        start_quality (int, opcional): Qualidade inicial da série (0 ou 1). Default é 0.
+        start_quality (int, opcional): Qualidade inicial da série (0 ou 1). Default é 1.
+        bad_quality_weight (float, opcional): Probabilidade de qualidades ruins. Valor entre 0 e 1. Default é 0.1.
         
     Returns:
         list: Lista de tuplas (valor: float, timestamp: datetime.datetime, qualidade: int)
@@ -29,7 +30,7 @@ def gerar_timeseries(seed, start_time, end_time, start_value=0, start_quality=0)
     
     while current_time <= end_time:
         valor = valor + random.uniform(-10, 10)
-        qualidade = random.choice([0, 1])
+        qualidade = 1 if random.random() >= bad_quality_weight else 0
         intervalo = random.randint(100, 15000) / 1000
         current_time += datetime.timedelta(seconds=intervalo)
         series.append((valor, current_time, qualidade))
