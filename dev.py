@@ -1,18 +1,24 @@
-
-from resources import generate_timeseries, plot_timeseries
 from src import slow_deadband
+from resources import generate_timeseries
 import datetime
+import time
+
+
+
 
 if __name__ == "__main__":
-    start = datetime.datetime(2025, 1, 1, 0, 0, 0)
-    end = datetime.datetime(2025, 1, 1, 1, 0, 0)
+    start = datetime.datetime(2020, 1, 1, 0, 0, 0)
+    end = datetime.datetime(2025, 12, 31, 23, 59, 59, 999)
     seed = 42
-    
-    dados = generate_timeseries(seed, start, end)
-    dados_comprimidos = slow_deadband(dados, 10, 30)
-    for dado in dados_comprimidos:
-        print(dado)
-    print(len(dados))
-    print(len(dados_comprimidos))
-    plot_timeseries(dados)
-    plot_timeseries(dados_comprimidos,"grafico_comprimido")
+
+    ts_i = time.time()
+    data = generate_timeseries(seed, start, end)
+    ts_f = time.time()
+    duration = ts_f - ts_i
+    print(f"{duration:.4f} seconds to generate the time series")
+
+    ts_i = time.time()
+    filtered_data = slow_deadband(data, 10, 30)
+    ts_f = time.time()
+    duration = ts_f - ts_i
+    print(f"{duration:.4f} seconds to filter data")

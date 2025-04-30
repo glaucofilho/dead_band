@@ -2,7 +2,7 @@ from pytest import raises
 
 from src import slow_deadband
 
-from .payloads import input_1, output_1, output_2, output_3
+from .payloads import input_1, input_2, output_1, output_2, output_3, output_4
 
 
 def test_slow_deadband():
@@ -16,3 +16,4 @@ def test_slow_deadband():
     assert slow_deadband(input_1, 10, 30, 5) == output_3
     assert slow_deadband(input_1, 10, 30000, time_unit="ms") == output_1
     assert slow_deadband(input_1, 10, 30000000, time_unit="us") == output_1
+    assert slow_deadband(input_2, 10, 30) == output_4
