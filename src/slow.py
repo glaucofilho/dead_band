@@ -11,8 +11,7 @@ def apply_deadband(
     Applies a deadband filter to a time series, considering value variation, time intervals (in selectable units), and quality changes.
 
     Args:
-        series (list): List of tuples (value: float, timestamp:
-        datetime.datetime, quality: int).
+        series (list): List of tuples (value: float, timestamp:datetime.datetime, quality: int).
         deadband_value (float): Deadband threshold (absolute value or percentage, depending on deadband_type).
         max_time_interval (float): Maximum time interval (unit defined by time_unit) to force saving a new point.
         min_time_interval (float): Minimum time interval (unit defined by time_unit) to allow saving a new point even with small variation. Default is 0.
