@@ -25,6 +25,7 @@ def apply_deadband(
     if not series:
         return []
 
+    # Convert time units once
     if time_unit == "s":
         multiplier = 1_000_000
     elif time_unit == "ms":
@@ -34,58 +35,76 @@ def apply_deadband(
     else:
         raise ValueError("time_unit must be 's', 'ms', or 'us'")
 
-    if deadband_type not in ["abs", "percent"]:
-        raise ValueError("deadband_type must be 'abs' or 'percent'")
-
     min_time_interval_us = min_time_interval * multiplier
     max_time_interval_us = max_time_interval * multiplier
 
+    if deadband_type == "abs":
+
+        def calc_variation(current, last):
+            return abs(current - last)
+
+    elif deadband_type == "percent":
+
+        def calc_variation(current, last):
+            return (
+                abs(current - last) / abs(last) * 100
+                if last != 0
+                else abs(current)
+            )
+
+    else:
+        raise ValueError("deadband_type must be 'abs' or 'percent'")
+
     has_quality = len(series[0]) == 3
 
-    filtered_series = [series[0]]
-    if has_quality:
-        last_value, last_timestamp, last_quality = series[0]
-    else:
+    if not has_quality:
+        filtered_series = [series[0]]
         last_value, last_timestamp = series[0]
-        last_quality = None
+
+        for point in series[1:]:
+            value, timestamp = point
+            time_delta_us = (
+                timestamp - last_timestamp
+            ).total_seconds() * 1_000_000
+
+            if time_delta_us >= min_time_interval_us:
+                variation = calc_variation(value, last_value)
+                if (
+                    variation > deadband_value
+                    or time_delta_us >= max_time_interval_us
+                ):
+                    filtered_series.append(point)
+                    last_value, last_timestamp = value, timestamp
+        return filtered_series
+
+    filtered_series = [series[0]]
+    last_value, last_timestamp, last_quality = series[0]
 
     for point in series[1:]:
-        if has_quality:
-            value, timestamp, quality = point
-        else:
-            value, timestamp = point
-            quality = None
-
+        value, timestamp, quality = point
         time_delta_us = (
             timestamp - last_timestamp
         ).total_seconds() * 1_000_000
 
-        if deadband_type == "abs":
-            variation = abs(value - last_value)
-        else:
-            if last_value == 0:
-                variation = abs(value)
-            else:
-                variation = abs(value - last_value) / abs(last_value) * 100
-
-        should_save = False
-
         if time_delta_us < min_time_interval_us:
-            should_save = False
-        elif (
-            has_quality and save_on_quality_change and quality != last_quality
-        ):
-            should_save = True
-        elif variation > deadband_value:
-            should_save = True
-        elif time_delta_us >= max_time_interval_us:
-            should_save = True
+            continue
 
-        if should_save:
+        if save_on_quality_change and quality != last_quality:
             filtered_series.append(point)
-            last_value = value
-            last_timestamp = timestamp
-            if has_quality:
-                last_quality = quality
+            last_value, last_timestamp, last_quality = (
+                value,
+                timestamp,
+                quality,
+            )
+            continue
+
+        variation = calc_variation(value, last_value)
+        if variation > deadband_value or time_delta_us >= max_time_interval_us:
+            filtered_series.append(point)
+            last_value, last_timestamp, last_quality = (
+                value,
+                timestamp,
+                quality,
+            )
 
     return filtered_series

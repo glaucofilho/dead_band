@@ -8,12 +8,13 @@ authors = [
 readme = "README.md"
 requires-python = ">=3.9,<4"
 dependencies = [
-    "cython (>=3.0.12,<4.0.0)"
+    "cython (>=3.0.12,<4.0.0)",
+    "setuptools (>=80.3.1,<81.0.0)"
 ]
 
 
 [build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
+requires = ["poetry-core>=2.0.0,<3.0.0", "setuptools>=80.0.0", "cython>=3.0.12,<4.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.group.dev.dependencies]
@@ -35,3 +36,6 @@ packages = [
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+
+[tool.poetry.scripts]
+build-cython = "scripts.build_cython:build"
