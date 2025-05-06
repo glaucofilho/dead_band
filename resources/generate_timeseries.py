@@ -9,6 +9,7 @@ def generate_timeseries(
     start_value=0,
     start_quality=1,
     bad_quality_weight=0.1,
+    generate_quality=True,
 ):
     """
     Generates a time series simulating sensor readings with continuous variation.
@@ -24,6 +25,7 @@ def generate_timeseries(
         start_value (float, optional): Initial value of the series. Default is 0.
         start_quality (int, optional): Initial quality of the series (0 or 1). Default is 1.
         bad_quality_weight (float, optional): Probability of bad qualities. Value between 0 and 1. Default is 0.1.
+        generate_quality (bool, optional): If True, generates quality values. Default is True.
 
     Returns:
         list: List of tuples (value: float, timestamp: datetime.datetime, quality: int)
@@ -34,15 +36,20 @@ def generate_timeseries(
     current_time = start_time
     value = start_value
     quality = start_quality
-    series.append((value, current_time, quality))
+    if generate_quality:
+        series.append((value, current_time, quality))
+    else:
+        series.append((value, current_time))
 
     while current_time <= end_time:
         value = value + random.uniform(-10, 10)
         quality = 1 if random.random() >= bad_quality_weight else 0
         interval = random.randint(100, 15000) / 1000
         current_time += datetime.timedelta(seconds=interval)
-        series.append((value, current_time, quality))
-
+        if generate_quality:
+            series.append((value, current_time, quality))
+        else:
+            series.append((value, current_time))
     return series
 
 
