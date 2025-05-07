@@ -39,3 +39,6 @@ testpaths = ["tests"]
 
 [tool.poetry.scripts]
 build-cython = "scripts.build_cython:build"
+
+[tool.setuptools.package-data]
+dead_band = ["cython_modules/*.pyx"]
