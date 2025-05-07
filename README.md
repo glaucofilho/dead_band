@@ -7,8 +7,28 @@
 A Python library leveraging Cython for the implementation of deadband algorithms and related techniques, with the objective of optimizing data throughput and minimizing unnecessary data processing.
 
 ## Installation
+
+### Linux (Ubuntu/Debian)
+
 ```bash
-pip install dead_band
+# Install gcc, make, and Python headers
+sudo apt update
+sudo apt install build-essential python3-dev
+
+# Install the library
+pip install dead-band
+```
+
+### Windows
+```bash
+:: Install C++ build tools from:
+:: https://visualstudio.microsoft.com/visual-cpp-build-tools/
+:: Select "Desktop development with C++" during setup
+
+:: After installation, restart your computer if needed
+
+:: Then install the library
+pip install dead-band
 ```
 
 ## Examples: Before and After Deadband Processing

@@ -1,6 +1,6 @@
 [project]
 name = "dead-band"
-version = "1.1.1"
+version = "1.1.2"
 description = "Python library for implementing dead band"
 authors = [
     {name = "glauco.filho",email = "glaucolmf@hotmail.com"}
