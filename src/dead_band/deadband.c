@@ -1545,8 +1545,8 @@ static const char *__pyx_filename;
 
 static const char *__pyx_f[] = {
   "src/dead_band/deadband.pyx",
-  "venv/lib/python3.12/site-packages/Cython/Includes/cpython/datetime.pxd",
-  "venv/lib/python3.12/site-packages/Cython/Includes/cpython/type.pxd",
+  "datetime.pxd",
+  "type.pxd",
 };
 /* #### Code section: utility_code_proto_before_types ### */
 /* ForceInitThreads.proto */
@@ -4895,7 +4895,7 @@ static CYTHON_INLINE double __pyx_f_7cpython_8datetime_total_seconds(PyDateTime_
   return __pyx_r;
 }
 
-/* "dead_band/deadband.pyx":10
+/* "dead_band/deadband.pyx":12
  * PyDateTime_IMPORT
  * 
  * @cython.boundscheck(False)             # <<<<<<<<<<<<<<
@@ -4951,7 +4951,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
     values[4] = __Pyx_Arg_NewRef_FASTCALL(((PyObject*)((PyObject*)__pyx_n_u_s)));
     values[5] = __Pyx_Arg_NewRef_FASTCALL(((PyObject*)((PyObject*)__pyx_n_u_abs)));
 
-    /* "dead_band/deadband.pyx":19
+    /* "dead_band/deadband.pyx":21
  *     time_unit: str = "s",
  *     deadband_type: str = "abs",
  *     save_on_quality_change: bool = True             # <<<<<<<<<<<<<<
@@ -4986,7 +4986,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 10, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 12, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
         CYTHON_FALLTHROUGH;
         case  1:
@@ -4994,9 +4994,9 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[1]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 10, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 12, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("apply_deadband", 0, 3, 7, 1); __PYX_ERR(0, 10, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("apply_deadband", 0, 3, 7, 1); __PYX_ERR(0, 12, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
@@ -5004,42 +5004,42 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[2]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 10, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 12, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("apply_deadband", 0, 3, 7, 2); __PYX_ERR(0, 10, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("apply_deadband", 0, 3, 7, 2); __PYX_ERR(0, 12, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (kw_args > 0) {
           PyObject* value = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_min_time_interval);
           if (value) { values[3] = __Pyx_Arg_NewRef_FASTCALL(value); kw_args--; }
-          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 10, __pyx_L3_error)
+          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 12, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  4:
         if (kw_args > 0) {
           PyObject* value = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_time_unit);
           if (value) { values[4] = __Pyx_Arg_NewRef_FASTCALL(value); kw_args--; }
-          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 10, __pyx_L3_error)
+          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 12, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  5:
         if (kw_args > 0) {
           PyObject* value = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_deadband_type);
           if (value) { values[5] = __Pyx_Arg_NewRef_FASTCALL(value); kw_args--; }
-          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 10, __pyx_L3_error)
+          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 12, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  6:
         if (kw_args > 0) {
           PyObject* value = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_save_on_quality_change);
           if (value) { values[6] = __Pyx_Arg_NewRef_FASTCALL(value); kw_args--; }
-          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 10, __pyx_L3_error)
+          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 12, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "apply_deadband") < 0)) __PYX_ERR(0, 10, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "apply_deadband") < 0)) __PYX_ERR(0, 12, __pyx_L3_error)
       }
     } else {
       switch (__pyx_nargs) {
@@ -5059,10 +5059,10 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       }
     }
     __pyx_v_series = ((PyObject*)values[0]);
-    __pyx_v_deadband_value = __pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_deadband_value == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 14, __pyx_L3_error)
-    __pyx_v_max_time_interval = __pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_max_time_interval == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 15, __pyx_L3_error)
+    __pyx_v_deadband_value = __pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_deadband_value == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 16, __pyx_L3_error)
+    __pyx_v_max_time_interval = __pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_max_time_interval == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 17, __pyx_L3_error)
     if (values[3]) {
-      __pyx_v_min_time_interval = __pyx_PyFloat_AsDouble(values[3]); if (unlikely((__pyx_v_min_time_interval == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 16, __pyx_L3_error)
+      __pyx_v_min_time_interval = __pyx_PyFloat_AsDouble(values[3]); if (unlikely((__pyx_v_min_time_interval == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 18, __pyx_L3_error)
     } else {
       __pyx_v_min_time_interval = ((double)((double)0.0));
     }
@@ -5072,7 +5072,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("apply_deadband", 0, 3, 7, __pyx_nargs); __PYX_ERR(0, 10, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("apply_deadband", 0, 3, 7, __pyx_nargs); __PYX_ERR(0, 12, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -5086,12 +5086,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_series), (&PyList_Type), 0, "series", 1))) __PYX_ERR(0, 13, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_time_unit), (&PyUnicode_Type), 0, "time_unit", 1))) __PYX_ERR(0, 17, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_deadband_type), (&PyUnicode_Type), 0, "deadband_type", 1))) __PYX_ERR(0, 18, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_series), (&PyList_Type), 0, "series", 1))) __PYX_ERR(0, 15, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_time_unit), (&PyUnicode_Type), 0, "time_unit", 1))) __PYX_ERR(0, 19, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_deadband_type), (&PyUnicode_Type), 0, "deadband_type", 1))) __PYX_ERR(0, 20, __pyx_L1_error)
   __pyx_r = __pyx_pf_9dead_band_8deadband_apply_deadband(__pyx_self, __pyx_v_series, __pyx_v_deadband_value, __pyx_v_max_time_interval, __pyx_v_min_time_interval, __pyx_v_time_unit, __pyx_v_deadband_type, __pyx_v_save_on_quality_change);
 
-  /* "dead_band/deadband.pyx":10
+  /* "dead_band/deadband.pyx":12
  * PyDateTime_IMPORT
  * 
  * @cython.boundscheck(False)             # <<<<<<<<<<<<<<
@@ -5114,7 +5114,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-/* "dead_band/deadband.pyx":49
+/* "dead_band/deadband.pyx":51
  *     # Determine deadband calculation function
  *     if deadband_type == "abs":
  *         def calc_variation(double current, double last):             # <<<<<<<<<<<<<<
@@ -5178,7 +5178,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 49, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 51, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
         CYTHON_FALLTHROUGH;
         case  1:
@@ -5186,14 +5186,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[1]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 49, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 51, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("calc_variation", 1, 2, 2, 1); __PYX_ERR(0, 49, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calc_variation", 1, 2, 2, 1); __PYX_ERR(0, 51, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "calc_variation") < 0)) __PYX_ERR(0, 49, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "calc_variation") < 0)) __PYX_ERR(0, 51, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 2)) {
       goto __pyx_L5_argtuple_error;
@@ -5201,12 +5201,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       values[0] = __Pyx_Arg_FASTCALL(__pyx_args, 0);
       values[1] = __Pyx_Arg_FASTCALL(__pyx_args, 1);
     }
-    __pyx_v_current = __pyx_PyFloat_AsDouble(values[0]); if (unlikely((__pyx_v_current == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 49, __pyx_L3_error)
-    __pyx_v_last = __pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_last == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 49, __pyx_L3_error)
+    __pyx_v_current = __pyx_PyFloat_AsDouble(values[0]); if (unlikely((__pyx_v_current == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 51, __pyx_L3_error)
+    __pyx_v_last = __pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_last == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 51, __pyx_L3_error)
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("calc_variation", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 49, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("calc_variation", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 51, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -5242,7 +5242,7 @@ static PyObject *__pyx_pf_9dead_band_8deadband_14apply_deadband_calc_variation(C
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("calc_variation", 1);
 
-  /* "dead_band/deadband.pyx":50
+  /* "dead_band/deadband.pyx":52
  *     if deadband_type == "abs":
  *         def calc_variation(double current, double last):
  *             return abs(current - last)             # <<<<<<<<<<<<<<
@@ -5250,13 +5250,13 @@ static PyObject *__pyx_pf_9dead_band_8deadband_14apply_deadband_calc_variation(C
  *         def calc_variation(double current, double last):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble(fabs((__pyx_v_current - __pyx_v_last))); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 50, __pyx_L1_error)
+  __pyx_t_1 = PyFloat_FromDouble(fabs((__pyx_v_current - __pyx_v_last))); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 52, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "dead_band/deadband.pyx":49
+  /* "dead_band/deadband.pyx":51
  *     # Determine deadband calculation function
  *     if deadband_type == "abs":
  *         def calc_variation(double current, double last):             # <<<<<<<<<<<<<<
@@ -5275,7 +5275,7 @@ static PyObject *__pyx_pf_9dead_band_8deadband_14apply_deadband_calc_variation(C
   return __pyx_r;
 }
 
-/* "dead_band/deadband.pyx":52
+/* "dead_band/deadband.pyx":54
  *             return abs(current - last)
  *     elif deadband_type == "percent":
  *         def calc_variation(double current, double last):             # <<<<<<<<<<<<<<
@@ -5339,7 +5339,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 52, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 54, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
         CYTHON_FALLTHROUGH;
         case  1:
@@ -5347,14 +5347,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[1]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 52, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 54, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("calc_variation", 1, 2, 2, 1); __PYX_ERR(0, 52, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("calc_variation", 1, 2, 2, 1); __PYX_ERR(0, 54, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "calc_variation") < 0)) __PYX_ERR(0, 52, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "calc_variation") < 0)) __PYX_ERR(0, 54, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 2)) {
       goto __pyx_L5_argtuple_error;
@@ -5362,12 +5362,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       values[0] = __Pyx_Arg_FASTCALL(__pyx_args, 0);
       values[1] = __Pyx_Arg_FASTCALL(__pyx_args, 1);
     }
-    __pyx_v_current = __pyx_PyFloat_AsDouble(values[0]); if (unlikely((__pyx_v_current == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 52, __pyx_L3_error)
-    __pyx_v_last = __pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_last == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 52, __pyx_L3_error)
+    __pyx_v_current = __pyx_PyFloat_AsDouble(values[0]); if (unlikely((__pyx_v_current == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 54, __pyx_L3_error)
+    __pyx_v_last = __pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_last == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 54, __pyx_L3_error)
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("calc_variation", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 52, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("calc_variation", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 54, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -5406,7 +5406,7 @@ static PyObject *__pyx_pf_9dead_band_8deadband_14apply_deadband_2calc_variation(
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("calc_variation", 1);
 
-  /* "dead_band/deadband.pyx":53
+  /* "dead_band/deadband.pyx":55
  *     elif deadband_type == "percent":
  *         def calc_variation(double current, double last):
  *             if last != 0:             # <<<<<<<<<<<<<<
@@ -5416,7 +5416,7 @@ static PyObject *__pyx_pf_9dead_band_8deadband_14apply_deadband_2calc_variation(
   __pyx_t_1 = (__pyx_v_last != 0.0);
   if (__pyx_t_1) {
 
-    /* "dead_band/deadband.pyx":54
+    /* "dead_band/deadband.pyx":56
  *         def calc_variation(double current, double last):
  *             if last != 0:
  *                 return abs(current - last) / abs(last) * 100.0             # <<<<<<<<<<<<<<
@@ -5428,15 +5428,15 @@ static PyObject *__pyx_pf_9dead_band_8deadband_14apply_deadband_2calc_variation(
     __pyx_t_3 = fabs(__pyx_v_last);
     if (unlikely(__pyx_t_3 == 0)) {
       PyErr_SetString(PyExc_ZeroDivisionError, "float division");
-      __PYX_ERR(0, 54, __pyx_L1_error)
+      __PYX_ERR(0, 56, __pyx_L1_error)
     }
-    __pyx_t_4 = PyFloat_FromDouble(((__pyx_t_2 / __pyx_t_3) * 100.0)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 54, __pyx_L1_error)
+    __pyx_t_4 = PyFloat_FromDouble(((__pyx_t_2 / __pyx_t_3) * 100.0)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 56, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __pyx_r = __pyx_t_4;
     __pyx_t_4 = 0;
     goto __pyx_L0;
 
-    /* "dead_band/deadband.pyx":53
+    /* "dead_band/deadband.pyx":55
  *     elif deadband_type == "percent":
  *         def calc_variation(double current, double last):
  *             if last != 0:             # <<<<<<<<<<<<<<
@@ -5445,7 +5445,7 @@ static PyObject *__pyx_pf_9dead_band_8deadband_14apply_deadband_2calc_variation(
  */
   }
 
-  /* "dead_band/deadband.pyx":55
+  /* "dead_band/deadband.pyx":57
  *             if last != 0:
  *                 return abs(current - last) / abs(last) * 100.0
  *             return abs(current)             # <<<<<<<<<<<<<<
@@ -5453,13 +5453,13 @@ static PyObject *__pyx_pf_9dead_band_8deadband_14apply_deadband_2calc_variation(
  *         raise ValueError("deadband_type must be 'abs' or 'percent'")
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_4 = PyFloat_FromDouble(fabs(__pyx_v_current)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 55, __pyx_L1_error)
+  __pyx_t_4 = PyFloat_FromDouble(fabs(__pyx_v_current)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 57, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_r = __pyx_t_4;
   __pyx_t_4 = 0;
   goto __pyx_L0;
 
-  /* "dead_band/deadband.pyx":52
+  /* "dead_band/deadband.pyx":54
  *             return abs(current - last)
  *     elif deadband_type == "percent":
  *         def calc_variation(double current, double last):             # <<<<<<<<<<<<<<
@@ -5478,7 +5478,7 @@ static PyObject *__pyx_pf_9dead_band_8deadband_14apply_deadband_2calc_variation(
   return __pyx_r;
 }
 
-/* "dead_band/deadband.pyx":10
+/* "dead_band/deadband.pyx":12
  * PyDateTime_IMPORT
  * 
  * @cython.boundscheck(False)             # <<<<<<<<<<<<<<
@@ -5522,7 +5522,7 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("apply_deadband", 1);
 
-  /* "dead_band/deadband.pyx":24
+  /* "dead_band/deadband.pyx":26
  *     Optimized Cython version of deadband filter for time series data.
  *     """
  *     if not series:             # <<<<<<<<<<<<<<
@@ -5533,7 +5533,7 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
   __pyx_t_2 = (!__pyx_t_1);
   if (__pyx_t_2) {
 
-    /* "dead_band/deadband.pyx":25
+    /* "dead_band/deadband.pyx":27
  *     """
  *     if not series:
  *         return []             # <<<<<<<<<<<<<<
@@ -5541,13 +5541,13 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
  *     # Convert time units once
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_3 = PyList_New(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 25, __pyx_L1_error)
+    __pyx_t_3 = PyList_New(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 27, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_r = ((PyObject*)__pyx_t_3);
     __pyx_t_3 = 0;
     goto __pyx_L0;
 
-    /* "dead_band/deadband.pyx":24
+    /* "dead_band/deadband.pyx":26
  *     Optimized Cython version of deadband filter for time series data.
  *     """
  *     if not series:             # <<<<<<<<<<<<<<
@@ -5556,17 +5556,17 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
  */
   }
 
-  /* "dead_band/deadband.pyx":29
+  /* "dead_band/deadband.pyx":31
  *     # Convert time units once
  *     cdef double multiplier
  *     if time_unit == "s":             # <<<<<<<<<<<<<<
  *         multiplier = 1_000_000.0
  *     elif time_unit == "ms":
  */
-  __pyx_t_2 = (__Pyx_PyUnicode_Equals(__pyx_v_time_unit, __pyx_n_u_s, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 29, __pyx_L1_error)
+  __pyx_t_2 = (__Pyx_PyUnicode_Equals(__pyx_v_time_unit, __pyx_n_u_s, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 31, __pyx_L1_error)
   if (__pyx_t_2) {
 
-    /* "dead_band/deadband.pyx":30
+    /* "dead_band/deadband.pyx":32
  *     cdef double multiplier
  *     if time_unit == "s":
  *         multiplier = 1_000_000.0             # <<<<<<<<<<<<<<
@@ -5575,7 +5575,7 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
  */
     __pyx_v_multiplier = 1000000.0;
 
-    /* "dead_band/deadband.pyx":29
+    /* "dead_band/deadband.pyx":31
  *     # Convert time units once
  *     cdef double multiplier
  *     if time_unit == "s":             # <<<<<<<<<<<<<<
@@ -5585,17 +5585,17 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
     goto __pyx_L4;
   }
 
-  /* "dead_band/deadband.pyx":31
+  /* "dead_band/deadband.pyx":33
  *     if time_unit == "s":
  *         multiplier = 1_000_000.0
  *     elif time_unit == "ms":             # <<<<<<<<<<<<<<
  *         multiplier = 1_000.0
  *     elif time_unit == "us":
  */
-  __pyx_t_2 = (__Pyx_PyUnicode_Equals(__pyx_v_time_unit, __pyx_n_u_ms, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 31, __pyx_L1_error)
+  __pyx_t_2 = (__Pyx_PyUnicode_Equals(__pyx_v_time_unit, __pyx_n_u_ms, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 33, __pyx_L1_error)
   if (__pyx_t_2) {
 
-    /* "dead_band/deadband.pyx":32
+    /* "dead_band/deadband.pyx":34
  *         multiplier = 1_000_000.0
  *     elif time_unit == "ms":
  *         multiplier = 1_000.0             # <<<<<<<<<<<<<<
@@ -5604,7 +5604,7 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
  */
     __pyx_v_multiplier = 1000.0;
 
-    /* "dead_band/deadband.pyx":31
+    /* "dead_band/deadband.pyx":33
  *     if time_unit == "s":
  *         multiplier = 1_000_000.0
  *     elif time_unit == "ms":             # <<<<<<<<<<<<<<
@@ -5614,17 +5614,17 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
     goto __pyx_L4;
   }
 
-  /* "dead_band/deadband.pyx":33
+  /* "dead_band/deadband.pyx":35
  *     elif time_unit == "ms":
  *         multiplier = 1_000.0
  *     elif time_unit == "us":             # <<<<<<<<<<<<<<
  *         multiplier = 1.0
  *     else:
  */
-  __pyx_t_2 = (__Pyx_PyUnicode_Equals(__pyx_v_time_unit, __pyx_n_u_us, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 33, __pyx_L1_error)
+  __pyx_t_2 = (__Pyx_PyUnicode_Equals(__pyx_v_time_unit, __pyx_n_u_us, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 35, __pyx_L1_error)
   if (likely(__pyx_t_2)) {
 
-    /* "dead_band/deadband.pyx":34
+    /* "dead_band/deadband.pyx":36
  *         multiplier = 1_000.0
  *     elif time_unit == "us":
  *         multiplier = 1.0             # <<<<<<<<<<<<<<
@@ -5633,7 +5633,7 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
  */
     __pyx_v_multiplier = 1.0;
 
-    /* "dead_band/deadband.pyx":33
+    /* "dead_band/deadband.pyx":35
  *     elif time_unit == "ms":
  *         multiplier = 1_000.0
  *     elif time_unit == "us":             # <<<<<<<<<<<<<<
@@ -5643,7 +5643,7 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
     goto __pyx_L4;
   }
 
-  /* "dead_band/deadband.pyx":36
+  /* "dead_band/deadband.pyx":38
  *         multiplier = 1.0
  *     else:
  *         raise ValueError("time_unit must be 's', 'ms', or 'us'")             # <<<<<<<<<<<<<<
@@ -5651,15 +5651,15 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
  *     cdef double min_time_interval_us = min_time_interval * multiplier
  */
   /*else*/ {
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__2, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 36, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__2, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 38, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_Raise(__pyx_t_3, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __PYX_ERR(0, 36, __pyx_L1_error)
+    __PYX_ERR(0, 38, __pyx_L1_error)
   }
   __pyx_L4:;
 
-  /* "dead_band/deadband.pyx":38
+  /* "dead_band/deadband.pyx":40
  *         raise ValueError("time_unit must be 's', 'ms', or 'us'")
  * 
  *     cdef double min_time_interval_us = min_time_interval * multiplier             # <<<<<<<<<<<<<<
@@ -5668,7 +5668,7 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
  */
   __pyx_v_min_time_interval_us = (__pyx_v_min_time_interval * __pyx_v_multiplier);
 
-  /* "dead_band/deadband.pyx":39
+  /* "dead_band/deadband.pyx":41
  * 
  *     cdef double min_time_interval_us = min_time_interval * multiplier
  *     cdef double max_time_interval_us = max_time_interval * multiplier             # <<<<<<<<<<<<<<
@@ -5677,29 +5677,29 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
  */
   __pyx_v_max_time_interval_us = (__pyx_v_max_time_interval * __pyx_v_multiplier);
 
-  /* "dead_band/deadband.pyx":48
+  /* "dead_band/deadband.pyx":50
  * 
  *     # Determine deadband calculation function
  *     if deadband_type == "abs":             # <<<<<<<<<<<<<<
  *         def calc_variation(double current, double last):
  *             return abs(current - last)
  */
-  __pyx_t_2 = (__Pyx_PyUnicode_Equals(__pyx_v_deadband_type, __pyx_n_u_abs, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 48, __pyx_L1_error)
+  __pyx_t_2 = (__Pyx_PyUnicode_Equals(__pyx_v_deadband_type, __pyx_n_u_abs, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 50, __pyx_L1_error)
   if (__pyx_t_2) {
 
-    /* "dead_band/deadband.pyx":49
+    /* "dead_band/deadband.pyx":51
  *     # Determine deadband calculation function
  *     if deadband_type == "abs":
  *         def calc_variation(double current, double last):             # <<<<<<<<<<<<<<
  *             return abs(current - last)
  *     elif deadband_type == "percent":
  */
-    __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_9dead_band_8deadband_14apply_deadband_1calc_variation, 0, __pyx_n_s_apply_deadband_locals_calc_varia, NULL, __pyx_n_s_dead_band_deadband, __pyx_d, ((PyObject *)__pyx_codeobj__4)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 49, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_9dead_band_8deadband_14apply_deadband_1calc_variation, 0, __pyx_n_s_apply_deadband_locals_calc_varia, NULL, __pyx_n_s_dead_band_deadband, __pyx_d, ((PyObject *)__pyx_codeobj__4)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 51, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_v_calc_variation = __pyx_t_3;
     __pyx_t_3 = 0;
 
-    /* "dead_band/deadband.pyx":48
+    /* "dead_band/deadband.pyx":50
  * 
  *     # Determine deadband calculation function
  *     if deadband_type == "abs":             # <<<<<<<<<<<<<<
@@ -5709,29 +5709,29 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
     goto __pyx_L5;
   }
 
-  /* "dead_band/deadband.pyx":51
+  /* "dead_band/deadband.pyx":53
  *         def calc_variation(double current, double last):
  *             return abs(current - last)
  *     elif deadband_type == "percent":             # <<<<<<<<<<<<<<
  *         def calc_variation(double current, double last):
  *             if last != 0:
  */
-  __pyx_t_2 = (__Pyx_PyUnicode_Equals(__pyx_v_deadband_type, __pyx_n_u_percent, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 51, __pyx_L1_error)
+  __pyx_t_2 = (__Pyx_PyUnicode_Equals(__pyx_v_deadband_type, __pyx_n_u_percent, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 53, __pyx_L1_error)
   if (likely(__pyx_t_2)) {
 
-    /* "dead_band/deadband.pyx":52
+    /* "dead_band/deadband.pyx":54
  *             return abs(current - last)
  *     elif deadband_type == "percent":
  *         def calc_variation(double current, double last):             # <<<<<<<<<<<<<<
  *             if last != 0:
  *                 return abs(current - last) / abs(last) * 100.0
  */
-    __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_9dead_band_8deadband_14apply_deadband_3calc_variation, 0, __pyx_n_s_apply_deadband_locals_calc_varia, NULL, __pyx_n_s_dead_band_deadband, __pyx_d, ((PyObject *)__pyx_codeobj__5)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 52, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_9dead_band_8deadband_14apply_deadband_3calc_variation, 0, __pyx_n_s_apply_deadband_locals_calc_varia, NULL, __pyx_n_s_dead_band_deadband, __pyx_d, ((PyObject *)__pyx_codeobj__5)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 54, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_v_calc_variation = __pyx_t_3;
     __pyx_t_3 = 0;
 
-    /* "dead_band/deadband.pyx":51
+    /* "dead_band/deadband.pyx":53
  *         def calc_variation(double current, double last):
  *             return abs(current - last)
  *     elif deadband_type == "percent":             # <<<<<<<<<<<<<<
@@ -5741,7 +5741,7 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
     goto __pyx_L5;
   }
 
-  /* "dead_band/deadband.pyx":57
+  /* "dead_band/deadband.pyx":59
  *             return abs(current)
  *     else:
  *         raise ValueError("deadband_type must be 'abs' or 'percent'")             # <<<<<<<<<<<<<<
@@ -5749,15 +5749,15 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
  *     has_quality = len(series[0]) == 3
  */
   /*else*/ {
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__6, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 57, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__6, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 59, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_Raise(__pyx_t_3, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __PYX_ERR(0, 57, __pyx_L1_error)
+    __PYX_ERR(0, 59, __pyx_L1_error)
   }
   __pyx_L5:;
 
-  /* "dead_band/deadband.pyx":59
+  /* "dead_band/deadband.pyx":61
  *         raise ValueError("deadband_type must be 'abs' or 'percent'")
  * 
  *     has_quality = len(series[0]) == 3             # <<<<<<<<<<<<<<
@@ -5766,11 +5766,11 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
  */
   __pyx_t_3 = PyList_GET_ITEM(__pyx_v_series, 0);
   __Pyx_INCREF(__pyx_t_3);
-  __pyx_t_4 = PyObject_Length(__pyx_t_3); if (unlikely(__pyx_t_4 == ((Py_ssize_t)-1))) __PYX_ERR(0, 59, __pyx_L1_error)
+  __pyx_t_4 = PyObject_Length(__pyx_t_3); if (unlikely(__pyx_t_4 == ((Py_ssize_t)-1))) __PYX_ERR(0, 61, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_v_has_quality = (__pyx_t_4 == 3);
 
-  /* "dead_band/deadband.pyx":61
+  /* "dead_band/deadband.pyx":63
  *     has_quality = len(series[0]) == 3
  * 
  *     if not has_quality:             # <<<<<<<<<<<<<<
@@ -5780,22 +5780,22 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
   __pyx_t_2 = (!__pyx_v_has_quality);
   if (__pyx_t_2) {
 
-    /* "dead_band/deadband.pyx":62
+    /* "dead_band/deadband.pyx":64
  * 
  *     if not has_quality:
  *         filtered_series = [series[0]]             # <<<<<<<<<<<<<<
  *         last_value, last_timestamp = series[0]
  * 
  */
-    __pyx_t_3 = PyList_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 62, __pyx_L1_error)
+    __pyx_t_3 = PyList_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 64, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_INCREF(PyList_GET_ITEM(__pyx_v_series, 0));
     __Pyx_GIVEREF(PyList_GET_ITEM(__pyx_v_series, 0));
-    if (__Pyx_PyList_SET_ITEM(__pyx_t_3, 0, PyList_GET_ITEM(__pyx_v_series, 0))) __PYX_ERR(0, 62, __pyx_L1_error);
+    if (__Pyx_PyList_SET_ITEM(__pyx_t_3, 0, PyList_GET_ITEM(__pyx_v_series, 0))) __PYX_ERR(0, 64, __pyx_L1_error);
     __pyx_v_filtered_series = ((PyObject*)__pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "dead_band/deadband.pyx":63
+    /* "dead_band/deadband.pyx":65
  *     if not has_quality:
  *         filtered_series = [series[0]]
  *         last_value, last_timestamp = series[0]             # <<<<<<<<<<<<<<
@@ -5810,7 +5810,7 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
       if (unlikely(size != 2)) {
         if (size > 2) __Pyx_RaiseTooManyValuesError(2);
         else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-        __PYX_ERR(0, 63, __pyx_L1_error)
+        __PYX_ERR(0, 65, __pyx_L1_error)
       }
       #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
       if (likely(PyTuple_CheckExact(sequence))) {
@@ -5823,15 +5823,15 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
       __Pyx_INCREF(__pyx_t_5);
       __Pyx_INCREF(__pyx_t_6);
       #else
-      __pyx_t_5 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 63, __pyx_L1_error)
+      __pyx_t_5 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 65, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_6 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 63, __pyx_L1_error)
+      __pyx_t_6 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 65, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       #endif
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     } else {
       Py_ssize_t index = -1;
-      __pyx_t_7 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 63, __pyx_L1_error)
+      __pyx_t_7 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 65, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __pyx_t_8 = __Pyx_PyObject_GetIterNextFunc(__pyx_t_7);
@@ -5839,7 +5839,7 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
       __Pyx_GOTREF(__pyx_t_5);
       index = 1; __pyx_t_6 = __pyx_t_8(__pyx_t_7); if (unlikely(!__pyx_t_6)) goto __pyx_L7_unpacking_failed;
       __Pyx_GOTREF(__pyx_t_6);
-      if (__Pyx_IternextUnpackEndCheck(__pyx_t_8(__pyx_t_7), 2) < 0) __PYX_ERR(0, 63, __pyx_L1_error)
+      if (__Pyx_IternextUnpackEndCheck(__pyx_t_8(__pyx_t_7), 2) < 0) __PYX_ERR(0, 65, __pyx_L1_error)
       __pyx_t_8 = NULL;
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       goto __pyx_L8_unpacking_done;
@@ -5847,23 +5847,23 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       __pyx_t_8 = NULL;
       if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-      __PYX_ERR(0, 63, __pyx_L1_error)
+      __PYX_ERR(0, 65, __pyx_L1_error)
       __pyx_L8_unpacking_done:;
     }
-    __pyx_t_9 = __pyx_PyFloat_AsDouble(__pyx_t_5); if (unlikely((__pyx_t_9 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 63, __pyx_L1_error)
+    __pyx_t_9 = __pyx_PyFloat_AsDouble(__pyx_t_5); if (unlikely((__pyx_t_9 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 65, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __pyx_v_last_value = __pyx_t_9;
     __pyx_v_last_timestamp = __pyx_t_6;
     __pyx_t_6 = 0;
 
-    /* "dead_band/deadband.pyx":65
+    /* "dead_band/deadband.pyx":67
  *         last_value, last_timestamp = series[0]
  * 
  *         for point in series[1:]:             # <<<<<<<<<<<<<<
  *             current_value, current_timestamp = point
  *             time_delta_us = (current_timestamp - last_timestamp).total_seconds() * 1_000_000.0
  */
-    __pyx_t_3 = __Pyx_PyList_GetSlice(__pyx_v_series, 1, PY_SSIZE_T_MAX); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 65, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyList_GetSlice(__pyx_v_series, 1, PY_SSIZE_T_MAX); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 67, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_6 = __pyx_t_3; __Pyx_INCREF(__pyx_t_6);
     __pyx_t_4 = 0;
@@ -5872,20 +5872,20 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
       {
         Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_6);
         #if !CYTHON_ASSUME_SAFE_MACROS
-        if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 65, __pyx_L1_error)
+        if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 67, __pyx_L1_error)
         #endif
         if (__pyx_t_4 >= __pyx_temp) break;
       }
       #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-      __pyx_t_3 = PyList_GET_ITEM(__pyx_t_6, __pyx_t_4); __Pyx_INCREF(__pyx_t_3); __pyx_t_4++; if (unlikely((0 < 0))) __PYX_ERR(0, 65, __pyx_L1_error)
+      __pyx_t_3 = PyList_GET_ITEM(__pyx_t_6, __pyx_t_4); __Pyx_INCREF(__pyx_t_3); __pyx_t_4++; if (unlikely((0 < 0))) __PYX_ERR(0, 67, __pyx_L1_error)
       #else
-      __pyx_t_3 = __Pyx_PySequence_ITEM(__pyx_t_6, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 65, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PySequence_ITEM(__pyx_t_6, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 67, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       #endif
       __Pyx_XDECREF_SET(__pyx_v_point, __pyx_t_3);
       __pyx_t_3 = 0;
 
-      /* "dead_band/deadband.pyx":66
+      /* "dead_band/deadband.pyx":68
  * 
  *         for point in series[1:]:
  *             current_value, current_timestamp = point             # <<<<<<<<<<<<<<
@@ -5898,7 +5898,7 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
         if (unlikely(size != 2)) {
           if (size > 2) __Pyx_RaiseTooManyValuesError(2);
           else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-          __PYX_ERR(0, 66, __pyx_L1_error)
+          __PYX_ERR(0, 68, __pyx_L1_error)
         }
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
         if (likely(PyTuple_CheckExact(sequence))) {
@@ -5911,21 +5911,21 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
         __Pyx_INCREF(__pyx_t_3);
         __Pyx_INCREF(__pyx_t_5);
         #else
-        __pyx_t_3 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 66, __pyx_L1_error)
+        __pyx_t_3 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 68, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_5 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 66, __pyx_L1_error)
+        __pyx_t_5 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 68, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
         #endif
       } else {
         Py_ssize_t index = -1;
-        __pyx_t_7 = PyObject_GetIter(__pyx_v_point); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 66, __pyx_L1_error)
+        __pyx_t_7 = PyObject_GetIter(__pyx_v_point); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 68, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_7);
         __pyx_t_8 = __Pyx_PyObject_GetIterNextFunc(__pyx_t_7);
         index = 0; __pyx_t_3 = __pyx_t_8(__pyx_t_7); if (unlikely(!__pyx_t_3)) goto __pyx_L11_unpacking_failed;
         __Pyx_GOTREF(__pyx_t_3);
         index = 1; __pyx_t_5 = __pyx_t_8(__pyx_t_7); if (unlikely(!__pyx_t_5)) goto __pyx_L11_unpacking_failed;
         __Pyx_GOTREF(__pyx_t_5);
-        if (__Pyx_IternextUnpackEndCheck(__pyx_t_8(__pyx_t_7), 2) < 0) __PYX_ERR(0, 66, __pyx_L1_error)
+        if (__Pyx_IternextUnpackEndCheck(__pyx_t_8(__pyx_t_7), 2) < 0) __PYX_ERR(0, 68, __pyx_L1_error)
         __pyx_t_8 = NULL;
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
         goto __pyx_L12_unpacking_done;
@@ -5933,25 +5933,25 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
         __pyx_t_8 = NULL;
         if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-        __PYX_ERR(0, 66, __pyx_L1_error)
+        __PYX_ERR(0, 68, __pyx_L1_error)
         __pyx_L12_unpacking_done:;
       }
-      __pyx_t_9 = __pyx_PyFloat_AsDouble(__pyx_t_3); if (unlikely((__pyx_t_9 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 66, __pyx_L1_error)
+      __pyx_t_9 = __pyx_PyFloat_AsDouble(__pyx_t_3); if (unlikely((__pyx_t_9 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 68, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __pyx_v_current_value = __pyx_t_9;
       __Pyx_XDECREF_SET(__pyx_v_current_timestamp, __pyx_t_5);
       __pyx_t_5 = 0;
 
-      /* "dead_band/deadband.pyx":67
+      /* "dead_band/deadband.pyx":69
  *         for point in series[1:]:
  *             current_value, current_timestamp = point
  *             time_delta_us = (current_timestamp - last_timestamp).total_seconds() * 1_000_000.0             # <<<<<<<<<<<<<<
  * 
  *             if time_delta_us >= min_time_interval_us:
  */
-      __pyx_t_3 = PyNumber_Subtract(__pyx_v_current_timestamp, __pyx_v_last_timestamp); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 67, __pyx_L1_error)
+      __pyx_t_3 = PyNumber_Subtract(__pyx_v_current_timestamp, __pyx_v_last_timestamp); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 69, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_total_seconds); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 67, __pyx_L1_error)
+      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_total_seconds); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 69, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __pyx_t_3 = NULL;
@@ -5972,18 +5972,18 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
         PyObject *__pyx_callargs[2] = {__pyx_t_3, NULL};
         __pyx_t_5 = __Pyx_PyObject_FastCall(__pyx_t_7, __pyx_callargs+1-__pyx_t_10, 0+__pyx_t_10);
         __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-        if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 67, __pyx_L1_error)
+        if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 69, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       }
-      __pyx_t_7 = PyNumber_Multiply(__pyx_t_5, __pyx_float_1000000_0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 67, __pyx_L1_error)
+      __pyx_t_7 = PyNumber_Multiply(__pyx_t_5, __pyx_float_1000000_0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 69, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      __pyx_t_9 = __pyx_PyFloat_AsDouble(__pyx_t_7); if (unlikely((__pyx_t_9 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 67, __pyx_L1_error)
+      __pyx_t_9 = __pyx_PyFloat_AsDouble(__pyx_t_7); if (unlikely((__pyx_t_9 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 69, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       __pyx_v_time_delta_us = __pyx_t_9;
 
-      /* "dead_band/deadband.pyx":69
+      /* "dead_band/deadband.pyx":71
  *             time_delta_us = (current_timestamp - last_timestamp).total_seconds() * 1_000_000.0
  * 
  *             if time_delta_us >= min_time_interval_us:             # <<<<<<<<<<<<<<
@@ -5993,33 +5993,33 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
       __pyx_t_2 = (__pyx_v_time_delta_us >= __pyx_v_min_time_interval_us);
       if (__pyx_t_2) {
 
-        /* "dead_band/deadband.pyx":70
+        /* "dead_band/deadband.pyx":72
  * 
  *             if time_delta_us >= min_time_interval_us:
  *                 variation = calc_variation(current_value, last_value)             # <<<<<<<<<<<<<<
  *                 if variation > deadband_value or time_delta_us >= max_time_interval_us:
  *                     filtered_series.append(point)
  */
-        __pyx_t_7 = PyFloat_FromDouble(__pyx_v_current_value); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 70, __pyx_L1_error)
+        __pyx_t_7 = PyFloat_FromDouble(__pyx_v_current_value); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 72, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_7);
-        __pyx_t_5 = PyFloat_FromDouble(__pyx_v_last_value); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 70, __pyx_L1_error)
+        __pyx_t_5 = PyFloat_FromDouble(__pyx_v_last_value); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 72, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
-        __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 70, __pyx_L1_error)
+        __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 72, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         __Pyx_GIVEREF(__pyx_t_7);
-        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_7)) __PYX_ERR(0, 70, __pyx_L1_error);
+        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_7)) __PYX_ERR(0, 72, __pyx_L1_error);
         __Pyx_GIVEREF(__pyx_t_5);
-        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_t_5)) __PYX_ERR(0, 70, __pyx_L1_error);
+        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_t_5)) __PYX_ERR(0, 72, __pyx_L1_error);
         __pyx_t_7 = 0;
         __pyx_t_5 = 0;
-        __pyx_t_5 = __Pyx_PyObject_Call(__pyx_v_calc_variation, __pyx_t_3, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 70, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyObject_Call(__pyx_v_calc_variation, __pyx_t_3, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 72, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        __pyx_t_9 = __pyx_PyFloat_AsDouble(__pyx_t_5); if (unlikely((__pyx_t_9 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 70, __pyx_L1_error)
+        __pyx_t_9 = __pyx_PyFloat_AsDouble(__pyx_t_5); if (unlikely((__pyx_t_9 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 72, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
         __pyx_v_variation = __pyx_t_9;
 
-        /* "dead_band/deadband.pyx":71
+        /* "dead_band/deadband.pyx":73
  *             if time_delta_us >= min_time_interval_us:
  *                 variation = calc_variation(current_value, last_value)
  *                 if variation > deadband_value or time_delta_us >= max_time_interval_us:             # <<<<<<<<<<<<<<
@@ -6037,16 +6037,16 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
         __pyx_L15_bool_binop_done:;
         if (__pyx_t_2) {
 
-          /* "dead_band/deadband.pyx":72
+          /* "dead_band/deadband.pyx":74
  *                 variation = calc_variation(current_value, last_value)
  *                 if variation > deadband_value or time_delta_us >= max_time_interval_us:
  *                     filtered_series.append(point)             # <<<<<<<<<<<<<<
  *                     last_value, last_timestamp = current_value, current_timestamp
  *         return filtered_series
  */
-          __pyx_t_11 = __Pyx_PyList_Append(__pyx_v_filtered_series, __pyx_v_point); if (unlikely(__pyx_t_11 == ((int)-1))) __PYX_ERR(0, 72, __pyx_L1_error)
+          __pyx_t_11 = __Pyx_PyList_Append(__pyx_v_filtered_series, __pyx_v_point); if (unlikely(__pyx_t_11 == ((int)-1))) __PYX_ERR(0, 74, __pyx_L1_error)
 
-          /* "dead_band/deadband.pyx":73
+          /* "dead_band/deadband.pyx":75
  *                 if variation > deadband_value or time_delta_us >= max_time_interval_us:
  *                     filtered_series.append(point)
  *                     last_value, last_timestamp = current_value, current_timestamp             # <<<<<<<<<<<<<<
@@ -6060,7 +6060,7 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
           __Pyx_DECREF_SET(__pyx_v_last_timestamp, __pyx_t_5);
           __pyx_t_5 = 0;
 
-          /* "dead_band/deadband.pyx":71
+          /* "dead_band/deadband.pyx":73
  *             if time_delta_us >= min_time_interval_us:
  *                 variation = calc_variation(current_value, last_value)
  *                 if variation > deadband_value or time_delta_us >= max_time_interval_us:             # <<<<<<<<<<<<<<
@@ -6069,7 +6069,7 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
  */
         }
 
-        /* "dead_band/deadband.pyx":69
+        /* "dead_band/deadband.pyx":71
  *             time_delta_us = (current_timestamp - last_timestamp).total_seconds() * 1_000_000.0
  * 
  *             if time_delta_us >= min_time_interval_us:             # <<<<<<<<<<<<<<
@@ -6078,7 +6078,7 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
  */
       }
 
-      /* "dead_band/deadband.pyx":65
+      /* "dead_band/deadband.pyx":67
  *         last_value, last_timestamp = series[0]
  * 
  *         for point in series[1:]:             # <<<<<<<<<<<<<<
@@ -6088,7 +6088,7 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
     }
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-    /* "dead_band/deadband.pyx":74
+    /* "dead_band/deadband.pyx":76
  *                     filtered_series.append(point)
  *                     last_value, last_timestamp = current_value, current_timestamp
  *         return filtered_series             # <<<<<<<<<<<<<<
@@ -6100,7 +6100,7 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
     __pyx_r = __pyx_v_filtered_series;
     goto __pyx_L0;
 
-    /* "dead_band/deadband.pyx":61
+    /* "dead_band/deadband.pyx":63
  *     has_quality = len(series[0]) == 3
  * 
  *     if not has_quality:             # <<<<<<<<<<<<<<
@@ -6109,22 +6109,22 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
  */
   }
 
-  /* "dead_band/deadband.pyx":77
+  /* "dead_band/deadband.pyx":79
  * 
  *     # With quality handling
  *     filtered_series = [series[0]]             # <<<<<<<<<<<<<<
  *     last_value, last_timestamp, last_quality = series[0]
  * 
  */
-  __pyx_t_6 = PyList_New(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 77, __pyx_L1_error)
+  __pyx_t_6 = PyList_New(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 79, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_INCREF(PyList_GET_ITEM(__pyx_v_series, 0));
   __Pyx_GIVEREF(PyList_GET_ITEM(__pyx_v_series, 0));
-  if (__Pyx_PyList_SET_ITEM(__pyx_t_6, 0, PyList_GET_ITEM(__pyx_v_series, 0))) __PYX_ERR(0, 77, __pyx_L1_error);
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_6, 0, PyList_GET_ITEM(__pyx_v_series, 0))) __PYX_ERR(0, 79, __pyx_L1_error);
   __pyx_v_filtered_series = ((PyObject*)__pyx_t_6);
   __pyx_t_6 = 0;
 
-  /* "dead_band/deadband.pyx":78
+  /* "dead_band/deadband.pyx":80
  *     # With quality handling
  *     filtered_series = [series[0]]
  *     last_value, last_timestamp, last_quality = series[0]             # <<<<<<<<<<<<<<
@@ -6139,7 +6139,7 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
     if (unlikely(size != 3)) {
       if (size > 3) __Pyx_RaiseTooManyValuesError(3);
       else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-      __PYX_ERR(0, 78, __pyx_L1_error)
+      __PYX_ERR(0, 80, __pyx_L1_error)
     }
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
     if (likely(PyTuple_CheckExact(sequence))) {
@@ -6155,17 +6155,17 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
     __Pyx_INCREF(__pyx_t_3);
     __Pyx_INCREF(__pyx_t_7);
     #else
-    __pyx_t_5 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 78, __pyx_L1_error)
+    __pyx_t_5 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 80, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_3 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 78, __pyx_L1_error)
+    __pyx_t_3 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 80, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_7 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 78, __pyx_L1_error)
+    __pyx_t_7 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 80, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     #endif
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   } else {
     Py_ssize_t index = -1;
-    __pyx_t_12 = PyObject_GetIter(__pyx_t_6); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 78, __pyx_L1_error)
+    __pyx_t_12 = PyObject_GetIter(__pyx_t_6); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 80, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_12);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __pyx_t_8 = __Pyx_PyObject_GetIterNextFunc(__pyx_t_12);
@@ -6175,7 +6175,7 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
     __Pyx_GOTREF(__pyx_t_3);
     index = 2; __pyx_t_7 = __pyx_t_8(__pyx_t_12); if (unlikely(!__pyx_t_7)) goto __pyx_L18_unpacking_failed;
     __Pyx_GOTREF(__pyx_t_7);
-    if (__Pyx_IternextUnpackEndCheck(__pyx_t_8(__pyx_t_12), 3) < 0) __PYX_ERR(0, 78, __pyx_L1_error)
+    if (__Pyx_IternextUnpackEndCheck(__pyx_t_8(__pyx_t_12), 3) < 0) __PYX_ERR(0, 80, __pyx_L1_error)
     __pyx_t_8 = NULL;
     __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
     goto __pyx_L19_unpacking_done;
@@ -6183,26 +6183,26 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
     __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
     __pyx_t_8 = NULL;
     if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-    __PYX_ERR(0, 78, __pyx_L1_error)
+    __PYX_ERR(0, 80, __pyx_L1_error)
     __pyx_L19_unpacking_done:;
   }
-  __pyx_t_9 = __pyx_PyFloat_AsDouble(__pyx_t_5); if (unlikely((__pyx_t_9 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 78, __pyx_L1_error)
+  __pyx_t_9 = __pyx_PyFloat_AsDouble(__pyx_t_5); if (unlikely((__pyx_t_9 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 80, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_13 = __Pyx_PyInt_As_int(__pyx_t_7); if (unlikely((__pyx_t_13 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 78, __pyx_L1_error)
+  __pyx_t_13 = __Pyx_PyInt_As_int(__pyx_t_7); if (unlikely((__pyx_t_13 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 80, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __pyx_v_last_value = __pyx_t_9;
   __pyx_v_last_timestamp = __pyx_t_3;
   __pyx_t_3 = 0;
   __pyx_v_last_quality = __pyx_t_13;
 
-  /* "dead_band/deadband.pyx":80
+  /* "dead_band/deadband.pyx":82
  *     last_value, last_timestamp, last_quality = series[0]
  * 
  *     for point in series[1:]:             # <<<<<<<<<<<<<<
  *         current_value, current_timestamp, current_quality = point
  *         time_delta_us = (current_timestamp - last_timestamp).total_seconds() * 1_000_000.0
  */
-  __pyx_t_6 = __Pyx_PyList_GetSlice(__pyx_v_series, 1, PY_SSIZE_T_MAX); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 80, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyList_GetSlice(__pyx_v_series, 1, PY_SSIZE_T_MAX); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 82, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __pyx_t_7 = __pyx_t_6; __Pyx_INCREF(__pyx_t_7);
   __pyx_t_4 = 0;
@@ -6211,20 +6211,20 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
     {
       Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_7);
       #if !CYTHON_ASSUME_SAFE_MACROS
-      if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 80, __pyx_L1_error)
+      if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 82, __pyx_L1_error)
       #endif
       if (__pyx_t_4 >= __pyx_temp) break;
     }
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-    __pyx_t_6 = PyList_GET_ITEM(__pyx_t_7, __pyx_t_4); __Pyx_INCREF(__pyx_t_6); __pyx_t_4++; if (unlikely((0 < 0))) __PYX_ERR(0, 80, __pyx_L1_error)
+    __pyx_t_6 = PyList_GET_ITEM(__pyx_t_7, __pyx_t_4); __Pyx_INCREF(__pyx_t_6); __pyx_t_4++; if (unlikely((0 < 0))) __PYX_ERR(0, 82, __pyx_L1_error)
     #else
-    __pyx_t_6 = __Pyx_PySequence_ITEM(__pyx_t_7, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 80, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PySequence_ITEM(__pyx_t_7, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 82, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     #endif
     __Pyx_XDECREF_SET(__pyx_v_point, __pyx_t_6);
     __pyx_t_6 = 0;
 
-    /* "dead_band/deadband.pyx":81
+    /* "dead_band/deadband.pyx":83
  * 
  *     for point in series[1:]:
  *         current_value, current_timestamp, current_quality = point             # <<<<<<<<<<<<<<
@@ -6237,7 +6237,7 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
       if (unlikely(size != 3)) {
         if (size > 3) __Pyx_RaiseTooManyValuesError(3);
         else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-        __PYX_ERR(0, 81, __pyx_L1_error)
+        __PYX_ERR(0, 83, __pyx_L1_error)
       }
       #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
       if (likely(PyTuple_CheckExact(sequence))) {
@@ -6253,16 +6253,16 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
       __Pyx_INCREF(__pyx_t_3);
       __Pyx_INCREF(__pyx_t_5);
       #else
-      __pyx_t_6 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 81, __pyx_L1_error)
+      __pyx_t_6 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 83, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
-      __pyx_t_3 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 81, __pyx_L1_error)
+      __pyx_t_3 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 83, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_5 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 81, __pyx_L1_error)
+      __pyx_t_5 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 83, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       #endif
     } else {
       Py_ssize_t index = -1;
-      __pyx_t_12 = PyObject_GetIter(__pyx_v_point); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 81, __pyx_L1_error)
+      __pyx_t_12 = PyObject_GetIter(__pyx_v_point); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 83, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_12);
       __pyx_t_8 = __Pyx_PyObject_GetIterNextFunc(__pyx_t_12);
       index = 0; __pyx_t_6 = __pyx_t_8(__pyx_t_12); if (unlikely(!__pyx_t_6)) goto __pyx_L22_unpacking_failed;
@@ -6271,7 +6271,7 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
       __Pyx_GOTREF(__pyx_t_3);
       index = 2; __pyx_t_5 = __pyx_t_8(__pyx_t_12); if (unlikely(!__pyx_t_5)) goto __pyx_L22_unpacking_failed;
       __Pyx_GOTREF(__pyx_t_5);
-      if (__Pyx_IternextUnpackEndCheck(__pyx_t_8(__pyx_t_12), 3) < 0) __PYX_ERR(0, 81, __pyx_L1_error)
+      if (__Pyx_IternextUnpackEndCheck(__pyx_t_8(__pyx_t_12), 3) < 0) __PYX_ERR(0, 83, __pyx_L1_error)
       __pyx_t_8 = NULL;
       __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
       goto __pyx_L23_unpacking_done;
@@ -6279,28 +6279,28 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
       __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
       __pyx_t_8 = NULL;
       if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-      __PYX_ERR(0, 81, __pyx_L1_error)
+      __PYX_ERR(0, 83, __pyx_L1_error)
       __pyx_L23_unpacking_done:;
     }
-    __pyx_t_9 = __pyx_PyFloat_AsDouble(__pyx_t_6); if (unlikely((__pyx_t_9 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 81, __pyx_L1_error)
+    __pyx_t_9 = __pyx_PyFloat_AsDouble(__pyx_t_6); if (unlikely((__pyx_t_9 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 83, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __pyx_t_13 = __Pyx_PyInt_As_int(__pyx_t_5); if (unlikely((__pyx_t_13 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 81, __pyx_L1_error)
+    __pyx_t_13 = __Pyx_PyInt_As_int(__pyx_t_5); if (unlikely((__pyx_t_13 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 83, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __pyx_v_current_value = __pyx_t_9;
     __Pyx_XDECREF_SET(__pyx_v_current_timestamp, __pyx_t_3);
     __pyx_t_3 = 0;
     __pyx_v_current_quality = __pyx_t_13;
 
-    /* "dead_band/deadband.pyx":82
+    /* "dead_band/deadband.pyx":84
  *     for point in series[1:]:
  *         current_value, current_timestamp, current_quality = point
  *         time_delta_us = (current_timestamp - last_timestamp).total_seconds() * 1_000_000.0             # <<<<<<<<<<<<<<
  * 
  *         if time_delta_us < min_time_interval_us:
  */
-    __pyx_t_3 = PyNumber_Subtract(__pyx_v_current_timestamp, __pyx_v_last_timestamp); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 82, __pyx_L1_error)
+    __pyx_t_3 = PyNumber_Subtract(__pyx_v_current_timestamp, __pyx_v_last_timestamp); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 84, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_total_seconds); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 82, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_total_seconds); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 84, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_3 = NULL;
@@ -6321,18 +6321,18 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
       PyObject *__pyx_callargs[2] = {__pyx_t_3, NULL};
       __pyx_t_5 = __Pyx_PyObject_FastCall(__pyx_t_6, __pyx_callargs+1-__pyx_t_10, 0+__pyx_t_10);
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 82, __pyx_L1_error)
+      if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 84, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     }
-    __pyx_t_6 = PyNumber_Multiply(__pyx_t_5, __pyx_float_1000000_0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 82, __pyx_L1_error)
+    __pyx_t_6 = PyNumber_Multiply(__pyx_t_5, __pyx_float_1000000_0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 84, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_9 = __pyx_PyFloat_AsDouble(__pyx_t_6); if (unlikely((__pyx_t_9 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 82, __pyx_L1_error)
+    __pyx_t_9 = __pyx_PyFloat_AsDouble(__pyx_t_6); if (unlikely((__pyx_t_9 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 84, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __pyx_v_time_delta_us = __pyx_t_9;
 
-    /* "dead_band/deadband.pyx":84
+    /* "dead_band/deadband.pyx":86
  *         time_delta_us = (current_timestamp - last_timestamp).total_seconds() * 1_000_000.0
  * 
  *         if time_delta_us < min_time_interval_us:             # <<<<<<<<<<<<<<
@@ -6342,7 +6342,7 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
     __pyx_t_2 = (__pyx_v_time_delta_us < __pyx_v_min_time_interval_us);
     if (__pyx_t_2) {
 
-      /* "dead_band/deadband.pyx":85
+      /* "dead_band/deadband.pyx":87
  * 
  *         if time_delta_us < min_time_interval_us:
  *             continue             # <<<<<<<<<<<<<<
@@ -6351,7 +6351,7 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
  */
       goto __pyx_L20_continue;
 
-      /* "dead_band/deadband.pyx":84
+      /* "dead_band/deadband.pyx":86
  *         time_delta_us = (current_timestamp - last_timestamp).total_seconds() * 1_000_000.0
  * 
  *         if time_delta_us < min_time_interval_us:             # <<<<<<<<<<<<<<
@@ -6360,14 +6360,14 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
  */
     }
 
-    /* "dead_band/deadband.pyx":87
+    /* "dead_band/deadband.pyx":89
  *             continue
  * 
  *         if save_on_quality_change and current_quality != last_quality:             # <<<<<<<<<<<<<<
  *             filtered_series.append(point)
  *             last_value, last_timestamp, last_quality = current_value, current_timestamp, current_quality
  */
-    __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_save_on_quality_change); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 87, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_save_on_quality_change); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 89, __pyx_L1_error)
     if (__pyx_t_1) {
     } else {
       __pyx_t_2 = __pyx_t_1;
@@ -6378,16 +6378,16 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
     __pyx_L26_bool_binop_done:;
     if (__pyx_t_2) {
 
-      /* "dead_band/deadband.pyx":88
+      /* "dead_band/deadband.pyx":90
  * 
  *         if save_on_quality_change and current_quality != last_quality:
  *             filtered_series.append(point)             # <<<<<<<<<<<<<<
  *             last_value, last_timestamp, last_quality = current_value, current_timestamp, current_quality
  *             continue
  */
-      __pyx_t_11 = __Pyx_PyList_Append(__pyx_v_filtered_series, __pyx_v_point); if (unlikely(__pyx_t_11 == ((int)-1))) __PYX_ERR(0, 88, __pyx_L1_error)
+      __pyx_t_11 = __Pyx_PyList_Append(__pyx_v_filtered_series, __pyx_v_point); if (unlikely(__pyx_t_11 == ((int)-1))) __PYX_ERR(0, 90, __pyx_L1_error)
 
-      /* "dead_band/deadband.pyx":89
+      /* "dead_band/deadband.pyx":91
  *         if save_on_quality_change and current_quality != last_quality:
  *             filtered_series.append(point)
  *             last_value, last_timestamp, last_quality = current_value, current_timestamp, current_quality             # <<<<<<<<<<<<<<
@@ -6403,7 +6403,7 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
       __pyx_t_6 = 0;
       __pyx_v_last_quality = __pyx_t_13;
 
-      /* "dead_band/deadband.pyx":90
+      /* "dead_band/deadband.pyx":92
  *             filtered_series.append(point)
  *             last_value, last_timestamp, last_quality = current_value, current_timestamp, current_quality
  *             continue             # <<<<<<<<<<<<<<
@@ -6412,7 +6412,7 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
  */
       goto __pyx_L20_continue;
 
-      /* "dead_band/deadband.pyx":87
+      /* "dead_band/deadband.pyx":89
  *             continue
  * 
  *         if save_on_quality_change and current_quality != last_quality:             # <<<<<<<<<<<<<<
@@ -6421,33 +6421,33 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
  */
     }
 
-    /* "dead_band/deadband.pyx":92
+    /* "dead_band/deadband.pyx":94
  *             continue
  * 
  *         variation = calc_variation(current_value, last_value)             # <<<<<<<<<<<<<<
  *         if variation > deadband_value or time_delta_us >= max_time_interval_us:
  *             filtered_series.append(point)
  */
-    __pyx_t_6 = PyFloat_FromDouble(__pyx_v_current_value); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 92, __pyx_L1_error)
+    __pyx_t_6 = PyFloat_FromDouble(__pyx_v_current_value); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 94, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_5 = PyFloat_FromDouble(__pyx_v_last_value); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 92, __pyx_L1_error)
+    __pyx_t_5 = PyFloat_FromDouble(__pyx_v_last_value); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 94, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 92, __pyx_L1_error)
+    __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 94, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_GIVEREF(__pyx_t_6);
-    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_6)) __PYX_ERR(0, 92, __pyx_L1_error);
+    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_6)) __PYX_ERR(0, 94, __pyx_L1_error);
     __Pyx_GIVEREF(__pyx_t_5);
-    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_t_5)) __PYX_ERR(0, 92, __pyx_L1_error);
+    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_t_5)) __PYX_ERR(0, 94, __pyx_L1_error);
     __pyx_t_6 = 0;
     __pyx_t_5 = 0;
-    __pyx_t_5 = __Pyx_PyObject_Call(__pyx_v_calc_variation, __pyx_t_3, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 92, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_Call(__pyx_v_calc_variation, __pyx_t_3, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 94, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_9 = __pyx_PyFloat_AsDouble(__pyx_t_5); if (unlikely((__pyx_t_9 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 92, __pyx_L1_error)
+    __pyx_t_9 = __pyx_PyFloat_AsDouble(__pyx_t_5); if (unlikely((__pyx_t_9 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 94, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __pyx_v_variation = __pyx_t_9;
 
-    /* "dead_band/deadband.pyx":93
+    /* "dead_band/deadband.pyx":95
  * 
  *         variation = calc_variation(current_value, last_value)
  *         if variation > deadband_value or time_delta_us >= max_time_interval_us:             # <<<<<<<<<<<<<<
@@ -6465,16 +6465,16 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
     __pyx_L29_bool_binop_done:;
     if (__pyx_t_2) {
 
-      /* "dead_band/deadband.pyx":94
+      /* "dead_band/deadband.pyx":96
  *         variation = calc_variation(current_value, last_value)
  *         if variation > deadband_value or time_delta_us >= max_time_interval_us:
  *             filtered_series.append(point)             # <<<<<<<<<<<<<<
  *             last_value, last_timestamp, last_quality = current_value, current_timestamp, current_quality
  * 
  */
-      __pyx_t_11 = __Pyx_PyList_Append(__pyx_v_filtered_series, __pyx_v_point); if (unlikely(__pyx_t_11 == ((int)-1))) __PYX_ERR(0, 94, __pyx_L1_error)
+      __pyx_t_11 = __Pyx_PyList_Append(__pyx_v_filtered_series, __pyx_v_point); if (unlikely(__pyx_t_11 == ((int)-1))) __PYX_ERR(0, 96, __pyx_L1_error)
 
-      /* "dead_band/deadband.pyx":95
+      /* "dead_band/deadband.pyx":97
  *         if variation > deadband_value or time_delta_us >= max_time_interval_us:
  *             filtered_series.append(point)
  *             last_value, last_timestamp, last_quality = current_value, current_timestamp, current_quality             # <<<<<<<<<<<<<<
@@ -6490,7 +6490,7 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
       __pyx_t_5 = 0;
       __pyx_v_last_quality = __pyx_t_13;
 
-      /* "dead_band/deadband.pyx":93
+      /* "dead_band/deadband.pyx":95
  * 
  *         variation = calc_variation(current_value, last_value)
  *         if variation > deadband_value or time_delta_us >= max_time_interval_us:             # <<<<<<<<<<<<<<
@@ -6499,7 +6499,7 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
  */
     }
 
-    /* "dead_band/deadband.pyx":80
+    /* "dead_band/deadband.pyx":82
  *     last_value, last_timestamp, last_quality = series[0]
  * 
  *     for point in series[1:]:             # <<<<<<<<<<<<<<
@@ -6510,7 +6510,7 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
   }
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-  /* "dead_band/deadband.pyx":97
+  /* "dead_band/deadband.pyx":99
  *             last_value, last_timestamp, last_quality = current_value, current_timestamp, current_quality
  * 
  *     return filtered_series             # <<<<<<<<<<<<<<
@@ -6520,7 +6520,7 @@ static PyObject *__pyx_pf_9dead_band_8deadband_apply_deadband(CYTHON_UNUSED PyOb
   __pyx_r = __pyx_v_filtered_series;
   goto __pyx_L0;
 
-  /* "dead_band/deadband.pyx":10
+  /* "dead_band/deadband.pyx":12
  * PyDateTime_IMPORT
  * 
  * @cython.boundscheck(False)             # <<<<<<<<<<<<<<
@@ -6630,7 +6630,7 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
 }
 /* #### Code section: cached_builtins ### */
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(0, 36, __pyx_L1_error)
+  __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(0, 38, __pyx_L1_error)
   __pyx_builtin_RuntimeError = __Pyx_GetBuiltinName(__pyx_n_s_RuntimeError); if (!__pyx_builtin_RuntimeError) __PYX_ERR(1, 308, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
@@ -6653,60 +6653,60 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple_);
   __Pyx_GIVEREF(__pyx_tuple_);
 
-  /* "dead_band/deadband.pyx":36
+  /* "dead_band/deadband.pyx":38
  *         multiplier = 1.0
  *     else:
  *         raise ValueError("time_unit must be 's', 'ms', or 'us'")             # <<<<<<<<<<<<<<
  * 
  *     cdef double min_time_interval_us = min_time_interval * multiplier
  */
-  __pyx_tuple__2 = PyTuple_Pack(1, __pyx_kp_u_time_unit_must_be_s_ms_or_us); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 36, __pyx_L1_error)
+  __pyx_tuple__2 = PyTuple_Pack(1, __pyx_kp_u_time_unit_must_be_s_ms_or_us); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 38, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__2);
   __Pyx_GIVEREF(__pyx_tuple__2);
 
-  /* "dead_band/deadband.pyx":49
+  /* "dead_band/deadband.pyx":51
  *     # Determine deadband calculation function
  *     if deadband_type == "abs":
  *         def calc_variation(double current, double last):             # <<<<<<<<<<<<<<
  *             return abs(current - last)
  *     elif deadband_type == "percent":
  */
-  __pyx_tuple__3 = PyTuple_Pack(2, __pyx_n_s_current, __pyx_n_s_last); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 49, __pyx_L1_error)
+  __pyx_tuple__3 = PyTuple_Pack(2, __pyx_n_s_current, __pyx_n_s_last); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 51, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__3);
   __Pyx_GIVEREF(__pyx_tuple__3);
-  __pyx_codeobj__4 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__3, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_dead_band_deadband_pyx, __pyx_n_s_calc_variation, 49, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__4)) __PYX_ERR(0, 49, __pyx_L1_error)
+  __pyx_codeobj__4 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__3, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_dead_band_deadband_pyx, __pyx_n_s_calc_variation, 51, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__4)) __PYX_ERR(0, 51, __pyx_L1_error)
 
-  /* "dead_band/deadband.pyx":52
+  /* "dead_band/deadband.pyx":54
  *             return abs(current - last)
  *     elif deadband_type == "percent":
  *         def calc_variation(double current, double last):             # <<<<<<<<<<<<<<
  *             if last != 0:
  *                 return abs(current - last) / abs(last) * 100.0
  */
-  __pyx_codeobj__5 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__3, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_dead_band_deadband_pyx, __pyx_n_s_calc_variation, 52, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__5)) __PYX_ERR(0, 52, __pyx_L1_error)
+  __pyx_codeobj__5 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__3, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_dead_band_deadband_pyx, __pyx_n_s_calc_variation, 54, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__5)) __PYX_ERR(0, 54, __pyx_L1_error)
 
-  /* "dead_band/deadband.pyx":57
+  /* "dead_band/deadband.pyx":59
  *             return abs(current)
  *     else:
  *         raise ValueError("deadband_type must be 'abs' or 'percent'")             # <<<<<<<<<<<<<<
  * 
  *     has_quality = len(series[0]) == 3
  */
-  __pyx_tuple__6 = PyTuple_Pack(1, __pyx_kp_u_deadband_type_must_be_abs_or_per); if (unlikely(!__pyx_tuple__6)) __PYX_ERR(0, 57, __pyx_L1_error)
+  __pyx_tuple__6 = PyTuple_Pack(1, __pyx_kp_u_deadband_type_must_be_abs_or_per); if (unlikely(!__pyx_tuple__6)) __PYX_ERR(0, 59, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__6);
   __Pyx_GIVEREF(__pyx_tuple__6);
 
-  /* "dead_band/deadband.pyx":10
+  /* "dead_band/deadband.pyx":12
  * PyDateTime_IMPORT
  * 
  * @cython.boundscheck(False)             # <<<<<<<<<<<<<<
  * @cython.wraparound(False)
  * def apply_deadband(
  */
-  __pyx_tuple__8 = PyTuple_Pack(25, __pyx_n_s_series, __pyx_n_s_deadband_value, __pyx_n_s_max_time_interval, __pyx_n_s_min_time_interval, __pyx_n_s_time_unit, __pyx_n_s_deadband_type, __pyx_n_s_save_on_quality_change, __pyx_n_s_multiplier, __pyx_n_s_min_time_interval_us, __pyx_n_s_max_time_interval_us, __pyx_n_s_time_delta_us, __pyx_n_s_variation, __pyx_n_s_current_value, __pyx_n_s_last_value, __pyx_n_s_has_quality, __pyx_n_s_quality_changed, __pyx_n_s_last_quality, __pyx_n_s_current_quality, __pyx_n_s_last_timestamp, __pyx_n_s_current_timestamp, __pyx_n_s_calc_variation, __pyx_n_s_calc_variation, __pyx_n_s_calc_variation, __pyx_n_s_filtered_series, __pyx_n_s_point); if (unlikely(!__pyx_tuple__8)) __PYX_ERR(0, 10, __pyx_L1_error)
+  __pyx_tuple__8 = PyTuple_Pack(25, __pyx_n_s_series, __pyx_n_s_deadband_value, __pyx_n_s_max_time_interval, __pyx_n_s_min_time_interval, __pyx_n_s_time_unit, __pyx_n_s_deadband_type, __pyx_n_s_save_on_quality_change, __pyx_n_s_multiplier, __pyx_n_s_min_time_interval_us, __pyx_n_s_max_time_interval_us, __pyx_n_s_time_delta_us, __pyx_n_s_variation, __pyx_n_s_current_value, __pyx_n_s_last_value, __pyx_n_s_has_quality, __pyx_n_s_quality_changed, __pyx_n_s_last_quality, __pyx_n_s_current_quality, __pyx_n_s_last_timestamp, __pyx_n_s_current_timestamp, __pyx_n_s_calc_variation, __pyx_n_s_calc_variation, __pyx_n_s_calc_variation, __pyx_n_s_filtered_series, __pyx_n_s_point); if (unlikely(!__pyx_tuple__8)) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__8);
   __Pyx_GIVEREF(__pyx_tuple__8);
-  __pyx_codeobj__9 = (PyObject*)__Pyx_PyCode_New(7, 0, 0, 25, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__8, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_dead_band_deadband_pyx, __pyx_n_s_apply_deadband, 10, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__9)) __PYX_ERR(0, 10, __pyx_L1_error)
+  __pyx_codeobj__9 = (PyObject*)__Pyx_PyCode_New(7, 0, 0, 25, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__8, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_dead_band_deadband_pyx, __pyx_n_s_apply_deadband, 12, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__9)) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -7101,70 +7101,69 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "dead_band/deadband.pyx":3
+  /* "dead_band/deadband.pyx":2
  * # cython: language_level=3
- * import cython
  * from datetime import datetime             # <<<<<<<<<<<<<<
- * from typing import Union, Tuple, List, Optional
- * from cpython.datetime cimport PyDateTime_IMPORT
+ * from typing import List, Optional, Tuple, Union
+ * 
  */
-  __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 3, __pyx_L1_error)
+  __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 2, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_n_s_datetime);
   __Pyx_GIVEREF(__pyx_n_s_datetime);
-  if (__Pyx_PyList_SET_ITEM(__pyx_t_2, 0, __pyx_n_s_datetime)) __PYX_ERR(0, 3, __pyx_L1_error);
-  __pyx_t_3 = __Pyx_Import(__pyx_n_s_datetime, __pyx_t_2, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 3, __pyx_L1_error)
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_2, 0, __pyx_n_s_datetime)) __PYX_ERR(0, 2, __pyx_L1_error);
+  __pyx_t_3 = __Pyx_Import(__pyx_n_s_datetime, __pyx_t_2, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 2, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_n_s_datetime); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 3, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_n_s_datetime); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 2, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_datetime, __pyx_t_2) < 0) __PYX_ERR(0, 3, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_datetime, __pyx_t_2) < 0) __PYX_ERR(0, 2, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "dead_band/deadband.pyx":4
- * import cython
+  /* "dead_band/deadband.pyx":3
+ * # cython: language_level=3
  * from datetime import datetime
- * from typing import Union, Tuple, List, Optional             # <<<<<<<<<<<<<<
- * from cpython.datetime cimport PyDateTime_IMPORT
+ * from typing import List, Optional, Tuple, Union             # <<<<<<<<<<<<<<
  * 
+ * import cython
  */
-  __pyx_t_3 = PyList_New(4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 4, __pyx_L1_error)
+  __pyx_t_3 = PyList_New(4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_INCREF(__pyx_n_s_Union);
-  __Pyx_GIVEREF(__pyx_n_s_Union);
-  if (__Pyx_PyList_SET_ITEM(__pyx_t_3, 0, __pyx_n_s_Union)) __PYX_ERR(0, 4, __pyx_L1_error);
-  __Pyx_INCREF(__pyx_n_s_Tuple);
-  __Pyx_GIVEREF(__pyx_n_s_Tuple);
-  if (__Pyx_PyList_SET_ITEM(__pyx_t_3, 1, __pyx_n_s_Tuple)) __PYX_ERR(0, 4, __pyx_L1_error);
   __Pyx_INCREF(__pyx_n_s_List);
   __Pyx_GIVEREF(__pyx_n_s_List);
-  if (__Pyx_PyList_SET_ITEM(__pyx_t_3, 2, __pyx_n_s_List)) __PYX_ERR(0, 4, __pyx_L1_error);
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_3, 0, __pyx_n_s_List)) __PYX_ERR(0, 3, __pyx_L1_error);
   __Pyx_INCREF(__pyx_n_s_Optional);
   __Pyx_GIVEREF(__pyx_n_s_Optional);
-  if (__Pyx_PyList_SET_ITEM(__pyx_t_3, 3, __pyx_n_s_Optional)) __PYX_ERR(0, 4, __pyx_L1_error);
-  __pyx_t_2 = __Pyx_Import(__pyx_n_s_typing, __pyx_t_3, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 4, __pyx_L1_error)
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_3, 1, __pyx_n_s_Optional)) __PYX_ERR(0, 3, __pyx_L1_error);
+  __Pyx_INCREF(__pyx_n_s_Tuple);
+  __Pyx_GIVEREF(__pyx_n_s_Tuple);
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_3, 2, __pyx_n_s_Tuple)) __PYX_ERR(0, 3, __pyx_L1_error);
+  __Pyx_INCREF(__pyx_n_s_Union);
+  __Pyx_GIVEREF(__pyx_n_s_Union);
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_3, 3, __pyx_n_s_Union)) __PYX_ERR(0, 3, __pyx_L1_error);
+  __pyx_t_2 = __Pyx_Import(__pyx_n_s_typing, __pyx_t_3, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_Union); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 4, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_List); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_Union, __pyx_t_3) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_List, __pyx_t_3) < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_Tuple); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 4, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_Optional); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_Tuple, __pyx_t_3) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_Optional, __pyx_t_3) < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_List); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 4, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_Tuple); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_List, __pyx_t_3) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_Tuple, __pyx_t_3) < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_Optional); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 4, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_Union); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_Optional, __pyx_t_3) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_Union, __pyx_t_3) < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "dead_band/deadband.pyx":8
+  /* "dead_band/deadband.pyx":10
  * 
  * # Necessrio para trabalhar com datetime em Cython
  * PyDateTime_IMPORT             # <<<<<<<<<<<<<<
@@ -7173,60 +7172,60 @@ if (!__Pyx_RefNanny) {
  */
   (void)(PyDateTime_IMPORT);
 
-  /* "dead_band/deadband.pyx":16
+  /* "dead_band/deadband.pyx":18
  *     deadband_value: float,
  *     max_time_interval: float,
  *     min_time_interval: float = 0,             # <<<<<<<<<<<<<<
  *     time_unit: str = "s",
  *     deadband_type: str = "abs",
  */
-  __pyx_t_2 = PyFloat_FromDouble(((double)0.0)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 16, __pyx_L1_error)
+  __pyx_t_2 = PyFloat_FromDouble(((double)0.0)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
 
-  /* "dead_band/deadband.pyx":10
+  /* "dead_band/deadband.pyx":12
  * PyDateTime_IMPORT
  * 
  * @cython.boundscheck(False)             # <<<<<<<<<<<<<<
  * @cython.wraparound(False)
  * def apply_deadband(
  */
-  __pyx_t_3 = PyTuple_New(4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 10, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_2);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_2)) __PYX_ERR(0, 10, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error);
   __Pyx_INCREF(((PyObject*)__pyx_n_u_s));
   __Pyx_GIVEREF(((PyObject*)__pyx_n_u_s));
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 1, ((PyObject*)__pyx_n_u_s))) __PYX_ERR(0, 10, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 1, ((PyObject*)__pyx_n_u_s))) __PYX_ERR(0, 12, __pyx_L1_error);
   __Pyx_INCREF(((PyObject*)__pyx_n_u_abs));
   __Pyx_GIVEREF(((PyObject*)__pyx_n_u_abs));
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 2, ((PyObject*)__pyx_n_u_abs))) __PYX_ERR(0, 10, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 2, ((PyObject*)__pyx_n_u_abs))) __PYX_ERR(0, 12, __pyx_L1_error);
   __Pyx_INCREF(((PyObject *)Py_True));
   __Pyx_GIVEREF(((PyObject *)Py_True));
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 3, ((PyObject *)Py_True))) __PYX_ERR(0, 10, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 3, ((PyObject *)Py_True))) __PYX_ERR(0, 12, __pyx_L1_error);
   __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 10, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_series, __pyx_kp_s_List_Union_Tuple_float_datetime) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_deadband_value, __pyx_n_s_float) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_max_time_interval, __pyx_n_s_float) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_min_time_interval, __pyx_n_s_float) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_time_unit, __pyx_n_s_str) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_deadband_type, __pyx_n_s_str) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_save_on_quality_change, __pyx_n_s_bool) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_return, __pyx_kp_s_List_Union_Tuple_float_datetime) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_9dead_band_8deadband_1apply_deadband, 0, __pyx_n_s_apply_deadband, NULL, __pyx_n_s_dead_band_deadband, __pyx_d, ((PyObject *)__pyx_codeobj__9)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 10, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_series, __pyx_kp_s_List_Union_Tuple_float_datetime) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_deadband_value, __pyx_n_s_float) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_max_time_interval, __pyx_n_s_float) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_min_time_interval, __pyx_n_s_float) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_time_unit, __pyx_n_s_str) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_deadband_type, __pyx_n_s_str) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_save_on_quality_change, __pyx_n_s_bool) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_return, __pyx_kp_s_List_Union_Tuple_float_datetime) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_9dead_band_8deadband_1apply_deadband, 0, __pyx_n_s_apply_deadband, NULL, __pyx_n_s_dead_band_deadband, __pyx_d, ((PyObject *)__pyx_codeobj__9)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_4, __pyx_t_3);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_4, __pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_apply_deadband, __pyx_t_4) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_apply_deadband, __pyx_t_4) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
   /* "dead_band/deadband.pyx":1
  * # cython: language_level=3             # <<<<<<<<<<<<<<
- * import cython
  * from datetime import datetime
+ * from typing import List, Optional, Tuple, Union
  */
   __pyx_t_4 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);

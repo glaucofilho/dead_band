@@ -14,8 +14,8 @@ dependencies = [
 
 
 [build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0", "setuptools>=80.0.0", "cython>=3.0.12,<4.0.0"]
-build-backend = "poetry.core.masonry.api"
+requires = ["wheel", "setuptools>=80.0.0", "cython>=3.0.12,<4.0.0"]
+build-backend = "setuptools.build_meta"
 
 [tool.poetry.group.dev.dependencies]
 black = "^25.1.0"
@@ -31,7 +31,7 @@ matplotlib = "<3.10"
 
 [tool.poetry]
 packages = [
-    { include = "src" }
+    { include = "dead_band", from = "src" }
 ]
 
 [tool.pytest.ini_options]
