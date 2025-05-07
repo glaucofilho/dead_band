@@ -2,12 +2,22 @@ from dead_band import apply_deadband
 from resources import generate_timeseries
 import datetime
 import time
+import csv
 
 start = datetime.datetime(2020, 1, 1, 0, 0, 0)
 end = datetime.datetime(2020, 12, 31, 23, 59, 59, 999)
 seed = 42
 dead_band_value = 10
 max_time_invertal = 30
+
+def generate_csv_file(filename, data):
+    with open(f"{filename}.csv", mode="w", newline="") as file:
+        writer = csv.writer(file)
+        writer.writerow(["value", "timestamp", "quality"])
+        for row in data:
+            formatted_row = list(row)
+            formatted_row[1] = formatted_row[1].isoformat()
+            writer.writerow(formatted_row)
 
 def try_slow_deadband():
     data = generate_timeseries(seed, start, end)
@@ -30,6 +40,8 @@ def try_fast_deadband():
     ts_i = time.time()
     filtered_data = apply_deadband(data, dead_band_value, max_time_invertal)
     ts_f = time.time()
+    generate_csv_file("filtered_data", filtered_data)
+    generate_csv_file("data", data)
     duration = ts_f - ts_i
     print(f"{duration:.4f} seconds to filter data")
 

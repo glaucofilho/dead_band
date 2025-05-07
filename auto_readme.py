@@ -56,11 +56,14 @@ pip install dead_band
 
 ## Examples: Before and After Deadband Processing
 
-### Raw Data (Before Deadband)
-<img src="./resources/png/plot.png" width="auto" height="auto">
+### Raw Data (Before deadband, CSV with 4,188,267 points and 196.74MB)
+<img src="https://raw.githubusercontent.com/glaucofilho/dead_band/refs/heads/main/resources/png/plot.png" width="auto" height="auto">
 
-### Compressed Data (After Deadband)
-<img src="./resources/png/compressed_plot.png" width="auto" height="auto">
+### Compressed Data (After Deadband, CSV with 1.609.190 points and 75.59MB)
+<img src="https://raw.githubusercontent.com/glaucofilho/dead_band/refs/heads/main/resources/png/compressed_plot.png" width="auto" height="auto">
+
+> **Note:**  
+> The ~60% reduction in data volume was achieved using the selected parameters for the deadband filter. This percentage may vary depending on the chosen threshold and dataset characteristics.
 
 ## Usage
 
@@ -107,13 +110,13 @@ print("Original:", len(original_df), "points")
 print("Filtered:", len(filtered_df), "points")
 ```
 #### Expected Output
-```python
+```bash
 Original: 7 points
 Filtered: 4 points
 ```
 
 ### Multiples pathnames Usage
-```bash
+```python
 import pandas as pd
 from datetime import datetime
 from dead_band import apply_deadband
