@@ -11,7 +11,7 @@ PyDateTime_IMPORT
 
 @cython.boundscheck(False)
 @cython.wraparound(False)
-def apply_deadband(
+def apply_c_deadband(
     series: List[Union[Tuple[float, datetime], Tuple[float, datetime, int]]],
     deadband_value: float,
     max_time_interval: float,

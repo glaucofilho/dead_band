@@ -1,4 +1,4 @@
-from src.dead_band import slow_deadband, fast_deadband
+from src.dead_band import apply_deadband
 from resources import generate_timeseries
 import datetime
 import time
@@ -12,14 +12,14 @@ max_time_invertal = 30
 def try_slow_deadband():
     data = generate_timeseries(seed, start, end)
     ts_i = time.time()
-    filtered_data = slow_deadband(data, dead_band_value, max_time_invertal)
+    filtered_data = apply_deadband(data, dead_band_value, max_time_invertal, use_cython=False)
     ts_f = time.time()
     duration = ts_f - ts_i
     print(f"{duration:.4f} seconds to filter data")
 
     data = generate_timeseries(seed, start, end, generate_quality=False)
     ts_i = time.time()
-    filtered_data = slow_deadband(data, dead_band_value, max_time_invertal)
+    filtered_data = apply_deadband(data, dead_band_value, max_time_invertal, use_cython=False)
     ts_f = time.time()
     duration = ts_f - ts_i
     print(f"{duration:.4f} seconds to filter data without quality")
@@ -28,14 +28,14 @@ def try_slow_deadband():
 def try_fast_deadband():
     data = generate_timeseries(seed, start, end)
     ts_i = time.time()
-    filtered_data = fast_deadband(data, dead_band_value, max_time_invertal)
+    filtered_data = apply_deadband(data, dead_band_value, max_time_invertal)
     ts_f = time.time()
     duration = ts_f - ts_i
     print(f"{duration:.4f} seconds to filter data")
 
     data = generate_timeseries(seed, start, end, generate_quality=False)
     ts_i = time.time()
-    filtered_data = fast_deadband(data, dead_band_value, max_time_invertal)
+    filtered_data = apply_deadband(data, dead_band_value, max_time_invertal)
     ts_f = time.time()
     duration = ts_f - ts_i
     print(f"{duration:.4f} seconds to filter data without quality")
