@@ -1,4 +1,4 @@
-from src.dead_band import apply_deadband
+from dead_band import apply_deadband
 from resources import generate_timeseries
 import datetime
 import time
