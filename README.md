@@ -33,14 +33,21 @@ pip install dead-band
 
 ## Examples: Before and After Deadband Processing
 
-### Raw Data (Before deadband, CSV with 4,188,267 points and 196.74MB)
+### Raw Data
 <img src="https://raw.githubusercontent.com/glaucofilho/dead_band/refs/heads/main/resources/png/plot.png" width="auto" height="auto">
 
-### Compressed Data (After Deadband, CSV with 1.609.190 points and 75.59MB)
+### Compressed Data
 <img src="https://raw.githubusercontent.com/glaucofilho/dead_band/refs/heads/main/resources/png/compressed_plot.png" width="auto" height="auto">
 
-> **Note:**  
-> The ~60% reduction in data volume was achieved using the selected parameters for the deadband filter. This percentage may vary depending on the chosen threshold and dataset characteristics.
+## How it works
+<img src="https://raw.githubusercontent.com/glaucofilho/dead_band/refs/heads/main/resources/png/how_it_works.png" width="auto" height="auto">
+
+* Point 1: The first point is always saved.
+* Point 2: Not saved, as the time difference is less than the minimum time interval.
+* Point 3: Saved, as the value difference is greater than the deadband value.
+* Point 4: Saved, as the time difference is greater than the maximum time interval.
+* Point 5: Not saved, as the value difference is less than the deadband value.
+* Point 6: Saved, as the value difference is greater than the deadband value.
 
 ## Usage
 
@@ -178,6 +185,14 @@ Filtered data:
 ```
 
 
+## Benchmarks
 
+| Environment       | Hardware        | Python Version | Points (Before → After) | CSV Size (Before → After) | Reduction | Duration   |
+|-------------------|-----------------|----------------|-----------------------------------|---------------------------|-----------|------------|
+| Ubuntu 24.04 LTS  | Ryzen 5 3500x   | Python 3.12    | 4,188,267 → 1,609,190             | 196.74MB → 75.59MB        | ~60%      | 1.0708s    |
+| Ubuntu 24.04 LTS  | EC2 - t2.small  | Python 3.12    | 4,188,267 → 1,609,190             | 196.74MB → 75.59MB        | ~60%      | 1.4055s    |
+
+> **Note:**  
+> The ~60% reduction in data volume was achieved using the selected parameters for the deadband filter. This percentage may vary depending on the chosen threshold and dataset characteristics.
 
 
