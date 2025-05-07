@@ -14,10 +14,10 @@ pip install dead_band
 ## Examples: Before and After Deadband Processing
 
 ### Raw Data (Before Deadband)
-![Raw Data](resources/png/plot.png)
+<img src="resources/png/plot.png" width="600">
 
 ### Compressed Data (After Deadband)
-![Compressed Data](resources/png/compressed_plot.png)
+<img src="resources/png/compressed_plot.png" width="600">
 
 ## Usage
 
