@@ -128,7 +128,7 @@ for pathname, group in df.groupby('pathname'):
     results.append(filtered_df)
 
 # 4. Combine all results
-final_df = pd.concat(results)
+final_df = pd.concat(results, ignore_index=True)
 
 print("Results by pathname:")
 print(final_df.groupby('pathname').size())
@@ -146,12 +146,12 @@ TAG002    4
 Filtered data:
    value           timestamp  quality pathname
 0   15.0 2023-01-01 08:00:00        1    TAG001
-2   15.4 2023-01-01 08:10:00        1    TAG001
-3   15.4 2023-01-01 08:15:00        2    TAG001
-5   22.0 2023-01-01 08:00:00        1    TAG002
-6   22.3 2023-01-01 08:05:00        1    TAG002
-8   22.8 2023-01-01 08:15:00        1    TAG002
-9   22.8 2023-01-01 08:20:00        2    TAG002
+1   15.4 2023-01-01 08:10:00        1    TAG001
+2   15.4 2023-01-01 08:15:00        2    TAG001
+3   22.0 2023-01-01 08:00:00        1    TAG002
+4   22.3 2023-01-01 08:05:00        1    TAG002
+5   22.8 2023-01-01 08:15:00        1    TAG002
+6   22.8 2023-01-01 08:20:00        2    TAG002
 ```
 
 
