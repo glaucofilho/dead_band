@@ -1,3 +1,6 @@
+from .cython_modules.c_deadband import apply_c_deadband  # type: ignore
+
+
 def apply_deadband(
     series,
     deadband_value,
@@ -6,6 +9,7 @@ def apply_deadband(
     time_unit="s",
     deadband_type="abs",
     save_on_quality_change=True,
+    use_cython=True,
 ):
     """
     Applies a deadband filter to a time series, considering value variation, time intervals (in selectable units), and optional quality changes.
@@ -18,10 +22,22 @@ def apply_deadband(
         time_unit (str): Unit for time intervals: 's' (seconds), 'ms' (milliseconds), or 'us' (microseconds). Default is 's'.
         deadband_type (str): 'abs' for absolute deadband or 'percent' for percentage-based deadband. Default is 'abs'.
         save_on_quality_change (bool): If True, saves a point whenever the quality changes compared to the last saved point. Only used when quality is provided in the series. Default is True.
+        use_cython (bool): If True, uses the Cython implementation for performance. Default is True.
 
     Returns:
         list: New list of tuples with the same structure as input (with or without quality) after applying the deadband filter.
     """  # noqa: E501
+    if use_cython:
+        return apply_c_deadband(
+            series,
+            deadband_value,
+            max_time_interval,
+            min_time_interval,
+            time_unit,
+            deadband_type,
+            save_on_quality_change,
+        )
+
     if not series:
         return []
 
