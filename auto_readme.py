@@ -69,6 +69,124 @@ pip install dead_band
 apply_deadband {signature}
 
 {docstring}
+```
+
+### Simple Usage
+```python
+import pandas as pd
+from datetime import datetime
+from dead_band import apply_deadband
+
+# 1. Create sample data
+data = [
+    (10.0, datetime(2023,1,1,12,0), 1),
+    (10.2, datetime(2023,1,1,12,5), 1),
+    (10.5, datetime(2023,1,1,12,10), 2),  # Quality change
+    (10.5, datetime(2023,1,1,12,15), 2),
+    (10.8, datetime(2023,1,1,12,20), 2),  # Variation > deadband
+    (10.8, datetime(2023,1,1,12,25), 2),
+    (10.8, datetime(2023,1,1,12,30), 3)   # Quality change
+]
+
+# 2. Apply deadband filter
+filtered_data = apply_deadband(
+    series=data,
+    deadband_value=0.3,          # 0.3 unit deadband
+    max_time_interval=1800,      # Force record every 30 minutes
+    min_time_interval=300,       # Minimum 5 minutes between records
+    time_unit='s',               # Time unit in seconds
+    deadband_type='abs',         # Absolute deadband
+    save_on_quality_change=True  # Save when quality changes
+)
+
+# 3. Convert to DataFrames
+original_df = pd.DataFrame(data, columns=['value', 'timestamp', 'quality'])
+filtered_df = pd.DataFrame(filtered_data, columns=['value', 'timestamp', 'quality'])
+
+print("Original:", len(original_df), "points")
+print("Filtered:", len(filtered_df), "points")
+```
+#### Expected Output
+```python
+Original: 7 points
+Filtered: 4 points
+```
+
+### Multiples pathnames Usage
+```bash
+import pandas as pd
+from datetime import datetime
+from dead_band import apply_deadband
+
+# 1. Create sample data with two different pathnames
+data = [
+    # Pathname "TAG001"
+    (15.0, datetime(2023,1,1,8,0), 1, "TAG001"),
+    (15.1, datetime(2023,1,1,8,5), 1, "TAG001"),
+    (15.4, datetime(2023,1,1,8,10), 1, "TAG001"),  # Variation > deadband
+    (15.4, datetime(2023,1,1,8,15), 2, "TAG001"),  # Quality change
+    (15.4, datetime(2023,1,1,8,20), 2, "TAG001"),
+    
+    # Pathname "TAG002"
+    (22.0, datetime(2023,1,1,8,0), 1, "TAG002"),
+    (22.3, datetime(2023,1,1,8,5), 1, "TAG002"),  # Variation > deadband
+    (22.3, datetime(2023,1,1,8,10), 1, "TAG002"),
+    (22.8, datetime(2023,1,1,8,15), 1, "TAG002"),  # Variation > deadband
+    (22.8, datetime(2023,1,1,8,20), 2, "TAG002")   # Quality change
+]
+
+# 2. Convert to DataFrame
+df = pd.DataFrame(data, columns=['value', 'timestamp', 'quality', 'pathname'])
+
+# 3. Apply deadband for each pathname
+results = []
+for pathname, group in df.groupby('pathname'):
+    # Prepare data in (value, timestamp, quality) format
+    series_data = group[['value', 'timestamp', 'quality']].values.tolist()
+    
+    # Apply filter
+    filtered = apply_deadband(
+        series=series_data,
+        deadband_value=0.2,
+        max_time_interval=600,  # 10 minutes
+        save_on_quality_change=True
+    )
+    
+    # Add pathname back to results
+    filtered_df = pd.DataFrame(filtered, columns=['value', 'timestamp', 'quality'])
+    filtered_df['pathname'] = pathname
+    results.append(filtered_df)
+
+# 4. Combine all results
+final_df = pd.concat(results)
+
+print("Results by pathname:")
+print(final_df.groupby('pathname').size())
+
+# Optional: Quick visualization
+print("Filtered data:")
+print(final_df.sort_values(['pathname', 'timestamp']))
+```
+#### Expected Output
+```bash
+Results by pathname:
+pathname
+TAG001    3
+TAG002    4
+Filtered data:
+   value           timestamp  quality pathname
+0   15.0 2023-01-01 08:00:00        1    TAG001
+2   15.4 2023-01-01 08:10:00        1    TAG001
+3   15.4 2023-01-01 08:15:00        2    TAG001
+5   22.0 2023-01-01 08:00:00        1    TAG002
+6   22.3 2023-01-01 08:05:00        1    TAG002
+8   22.8 2023-01-01 08:15:00        1    TAG002
+9   22.8 2023-01-01 08:20:00        2    TAG002
+```
+
+
+
+
 
 """
     with open("README.md", "w") as readme_file:
