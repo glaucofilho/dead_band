@@ -1,4 +1,4 @@
-from .cython_modules.c_deadband import apply_c_deadband
+from .cython_modules.c_deadband import apply_c_deadband  # type: ignore
 
 
 def apply_deadband(
