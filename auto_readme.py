@@ -51,28 +51,33 @@ A Python library leveraging Cython for the implementation of deadband algorithms
 
 ## Installation
 
-### Linux (Ubuntu/Debian)
-
 ```bash
-# Install gcc, make, and Python headers
-sudo apt update
-sudo apt install build-essential python3-dev
-
-# Install the library
 pip install dead-band
 ```
 
-### Windows
-```bash
-:: Install C++ build tools from:
-:: https://visualstudio.microsoft.com/visual-cpp-build-tools/
-:: Select "Desktop development with C++" during setup
+That is all, on any supported platform. **No compiler and no Python headers are
+required.** Binary wheels are published for CPython 3.10-3.14 on Linux
+(x86_64, aarch64), macOS (arm64, x86_64) and Windows (AMD64), and the library
+has no runtime dependencies.
 
-:: After installation, restart your computer if needed
+<details>
+<summary>Platforms with no published wheel</summary>
 
-:: Then install the library
-pip install dead-band
+pip falls back to the source distribution, which compiles the Cython extension
+and therefore does need a toolchain — `build-essential python3-dev` on
+Debian/Ubuntu, or the [Visual C++ Build
+Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/) on Windows.
+
+If the extension cannot be built, the library still imports and falls back to a
+pure-Python implementation that returns identical results, considerably more
+slowly. Check which path is active with:
+
+```python
+import dead_band
+dead_band.CYTHON_AVAILABLE  # True when the compiled extension is in use
 ```
+
+</details>
 
 ## Examples: Before and After Deadband Processing
 

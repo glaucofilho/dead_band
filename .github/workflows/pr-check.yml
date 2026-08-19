@@ -7,33 +7,100 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: pr-check-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  tox:
-    name: Tox on ${{ matrix.python-version }}
+  tests:
+    name: Tests on ${{ matrix.python-version }}
     runs-on: ubuntu-latest
-
     strategy:
+      fail-fast: false
       matrix:
-        python-version: ['3.9', '3.10', '3.11', '3.12', '3.13']
-
+        python-version: ['3.10', '3.11', '3.12', '3.13', '3.14']
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
 
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v4
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Install Poetry
-        run: |
-          curl -sSL https://install.python-poetry.org | python3 -
-          echo "$HOME/.local/bin" >> $GITHUB_PATH
+      # Poetry is no longer needed here. tox builds this project through PEP 517
+      # and installs the resulting wheel itself, so the tests run against the
+      # compiled artifact rather than the source tree. That also removes the
+      # `curl | python3` Poetry bootstrap this workflow used to run.
+      - name: Install tox
+        run: pip install tox
 
-      - name: Install dependencies
-        run: poetry install
-
-      - name: Run tox
+      - name: Run tests
         run: |
-          PY_VERSION_NO_DOT=$(echo "${{ matrix.python-version }}" | tr -d .)
-          poetry run tox -e py${PY_VERSION_NO_DOT},mypy,flake8,black,isort
+          PY=$(echo "${{ matrix.python-version }}" | tr -d .)
+          tox -e py${PY}
+
+  lint:
+    name: Lint and types
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.13'
+
+      - name: Install tox
+        run: pip install tox
+
+      # Once, not once per Python version -- the old workflow ran all four of
+      # these inside every matrix leg.
+      - name: Run linters
+        run: tox -e mypy,flake8,black,isort
+
+  fallback:
+    name: Pure-Python fallback
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.13'
+
+      - name: Install tox
+        run: pip install tox
+
+      # The guarded import in deadband.py has a branch that only runs when the
+      # compiled extension is missing. Nothing else in CI exercises it, and it is
+      # what a platform with no published wheel depends on.
+      - name: Verify the library works with no compiled extension
+        run: tox -e fallback
+
+  wheel:
+    name: Wheel builds and installs without a compiler
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+
+      # Build one representative wheel on PRs rather than the full release
+      # matrix. Catches a broken build config without paying for 5 platforms.
+      - name: Build a manylinux wheel
+        uses: pypa/cibuildwheel@1828c10ab37f080699c7b81cea34097c684a7074 # v4.2.0
+        env:
+          CIBW_ARCHS: x86_64
+          CIBW_BUILD: cp313-manylinux_x86_64
+          CIBW_TEST_REQUIRES: pytest
+          CIBW_TEST_COMMAND: >
+            python -c "import dead_band; assert dead_band.CYTHON_AVAILABLE, 'wheel has no compiled extension'"
+            && pytest {project}/tests -q
+
+      # The point of shipping wheels: an end user needs no toolchain. python:slim
+      # has no gcc, no make, and no Python headers, so this fails if the wheel is
+      # not genuinely self-contained -- and it would have failed for every
+      # release before 1.2.0, when only an sdist was published.
+      - name: Install the wheel in a container with no build tools
+        run: |
+          docker run --rm \
+            -v "$PWD/wheelhouse:/w:ro" \
+            -v "$PWD/scripts/smoke_wheel.py:/smoke_wheel.py:ro" \
+            python:3.13-slim \
+            bash -eux -c '! command -v gcc && pip install --quiet --no-index --no-cache-dir /w/*.whl && python /smoke_wheel.py'
