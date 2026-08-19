@@ -1,6 +1,6 @@
 # 📦 dead_band
 
-![Python Version](https://img.shields.io/badge/python->=3.9,<4-blue.svg)
+![Python Version](https://img.shields.io/badge/python->=3.10,<4-blue.svg)
 ![Coverage](https://img.shields.io/badge/coverage-100.0%25-brightgreen.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 
@@ -8,28 +8,33 @@ A Python library leveraging Cython for the implementation of deadband algorithms
 
 ## Installation
 
-### Linux (Ubuntu/Debian)
-
 ```bash
-# Install gcc, make, and Python headers
-sudo apt update
-sudo apt install build-essential python3-dev
-
-# Install the library
 pip install dead-band
 ```
 
-### Windows
-```bash
-:: Install C++ build tools from:
-:: https://visualstudio.microsoft.com/visual-cpp-build-tools/
-:: Select "Desktop development with C++" during setup
+That is all, on any supported platform. **No compiler and no Python headers are
+required.** Binary wheels are published for CPython 3.10-3.14 on Linux
+(x86_64, aarch64), macOS (arm64, x86_64) and Windows (AMD64), and the library
+has no runtime dependencies.
 
-:: After installation, restart your computer if needed
+<details>
+<summary>Platforms with no published wheel</summary>
 
-:: Then install the library
-pip install dead-band
+pip falls back to the source distribution, which compiles the Cython extension
+and therefore does need a toolchain — `build-essential python3-dev` on
+Debian/Ubuntu, or the [Visual C++ Build
+Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/) on Windows.
+
+If the extension cannot be built, the library still imports and falls back to a
+pure-Python implementation that returns identical results, considerably more
+slowly. Check which path is active with:
+
+```python
+import dead_band
+dead_band.CYTHON_AVAILABLE  # True when the compiled extension is in use
 ```
+
+</details>
 
 ## Examples: Before and After Deadband Processing
 
@@ -53,7 +58,7 @@ pip install dead-band
 
 ### Function apply_deadband
 ```python
-apply_deadband (series, deadband_value, max_time_interval, min_time_interval=0, time_unit='s', deadband_type='abs', save_on_quality_change=True, use_cython=True)
+apply_deadband (series: Sequence[Tuple[float, datetime.datetime] | Tuple[float, datetime.datetime, int | None]], deadband_value: float, max_time_interval: float, min_time_interval: float = 0, time_unit: str = 's', deadband_type: str = 'abs', save_on_quality_change: bool = True, use_cython: bool = True) -> List[Tuple[float, datetime.datetime] | Tuple[float, datetime.datetime, int | None]]
 
 Applies a deadband filter to a time series, considering value variation, time intervals (in selectable units), and optional quality changes.
 
@@ -65,7 +70,7 @@ Args:
     time_unit (str): Unit for time intervals: 's' (seconds), 'ms' (milliseconds), or 'us' (microseconds). Default is 's'.
     deadband_type (str): 'abs' for absolute deadband or 'percent' for percentage-based deadband. Default is 'abs'.
     save_on_quality_change (bool): If True, saves a point whenever the quality changes compared to the last saved point. Only used when quality is provided in the series. Default is True.
-    use_cython (bool): If True, uses the Cython implementation for performance. Default is True.
+    use_cython (bool): If True, uses the Cython implementation for performance, when it is available. Falls back to the pure-Python implementation if the compiled extension is missing; check dead_band.CYTHON_AVAILABLE to tell which path is active. Default is True.
 
 Returns:
     list: New list of tuples with the same structure as input (with or without quality) after applying the deadband filter.

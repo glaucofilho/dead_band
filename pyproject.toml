@@ -1,33 +1,67 @@
 [project]
 name = "dead-band"
-version = "1.1.4"
+version = "1.2.0"
 description = "Python library for implementing dead band"
 authors = [
     {name = "glauco.filho",email = "glaucolmf@hotmail.com"}
 ]
 readme = "README.md"
-requires-python = ">=3.9,<4"
-dependencies = [
-    "cython (>=3.0.12,<4.0.0)",
-    "setuptools (>=80.3.1,<81.0.0)"
+# PEP 639 license expression. The legacy "License :: OSI Approved :: MIT License"
+# classifier must NOT also be present -- setuptools rejects the combination.
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.10,<4"
+
+# No runtime dependencies, deliberately.
+#
+# `cython` and `setuptools` used to be listed here. They are *build* tools: they
+# are needed to compile src/dead_band/cython_modules/c_deadband.pyx into an
+# extension module, and they are never imported at runtime. Listing them as
+# runtime dependencies forced every consumer of this library to install a
+# compiler toolchain it did not need, and -- because the pin was
+# `setuptools>=80.3.1,<81.0.0` -- capped setuptools two major versions below the
+# current release for anything that depended on dead-band. That blocked a
+# security patch in a downstream service (SunOp-calc-api). They belong in
+# [build-system].requires only, which is where they now are.
+dependencies = []
+
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Cython",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Topic :: Scientific/Engineering",
+    "Typing :: Typed",
 ]
 
+[project.urls]
+Homepage = "https://github.com/glaucofilho/dead_band"
+Repository = "https://github.com/glaucofilho/dead_band"
+Issues = "https://github.com/glaucofilho/dead_band/issues"
 
 [build-system]
-requires = ["wheel", "setuptools>=80.0.0", "cython>=3.0.12,<4.0.0"]
+requires = ["setuptools>=80.0.0", "cython>=3.1,<4"]
 build-backend = "setuptools.build_meta"
 
 [tool.poetry.group.dev.dependencies]
-black = "^25.1.0"
-isort = "^6.0.1"
-flake8 = "^7.2.0"
-mypy = "^1.15.0"
-tox = "^4.25.0"
-pytest = "^8.3.5"
-pytest-cov = "^6.1.1"
-coverage = "^7.8.0"
+black = "^26.3.1"
+isort = "^8.0.1"
+flake8 = "^7.3.0"
+mypy = "^2.3.1"
+tox = "^4.60.0"
+pytest = "^9.1.1"
+pytest-cov = "^7.1.0"
+coverage = "^7.15.4"
 toml = "^0.10.2"
-matplotlib = "<3.10"
+matplotlib = "^3.10"
+cython = "^3.1"
 
 [tool.poetry]
 packages = [
@@ -37,8 +71,14 @@ packages = [
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 
-[tool.poetry.scripts]
-build-cython = "scripts.build_cython:build"
-
 [tool.setuptools.package-data]
-dead_band = ["cython_modules/*.pyx"]
+# The .pyx ships in the sdist so a source build is still possible on a platform
+# with no wheel. py.typed marks the package as typed for consumers.
+dead_band = ["cython_modules/*.pyx", "py.typed"]
+
+[tool.isort]
+profile = "black"
+line_length = 79
+
+[tool.mypy]
+ignore_missing_imports = true
