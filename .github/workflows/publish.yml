@@ -27,6 +27,7 @@ jobs:
   build_wheels:
     name: Wheels on ${{ matrix.os }} (${{ matrix.arch }})
     runs-on: ${{ matrix.os }}
+    timeout-minutes: 60
     strategy:
       fail-fast: false
       matrix:
@@ -39,7 +40,19 @@ jobs:
             arch: AMD64
           - os: macos-latest
             arch: arm64
-          - os: macos-13
+          # Intel macOS needs an explicit label: macos-latest and macos-15 are
+          # arm64. Do NOT use `macos-13` -- that image was retired, and a job
+          # requesting it is never assigned a runner. It does not fail; it sits
+          # in `queued` until GitHub's 24h ceiling, and because `publish` needs
+          # every wheel job, the whole release hangs behind it. That is what
+          # happened to the v1.2 release (run 32281506482, queued 1h+ before it
+          # was cancelled by hand).
+          #
+          # Current Intel labels are `macos-15-intel` and `macos-26-intel`.
+          # 15 is chosen over 26 deliberately: building on the older macOS gives
+          # a lower MACOSX_DEPLOYMENT_TARGET, so the wheel supports more macOS
+          # versions. Check actions/runner-images before changing this.
+          - os: macos-15-intel
             arch: x86_64
     steps:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
