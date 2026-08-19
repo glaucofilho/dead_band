@@ -1,16 +1,16 @@
 """Post-install smoke test for a built wheel.
 
-Run this against an installed dead-band to confirm the *compiled* path is the one
-in use. CI runs it inside a container with no compiler, which is the property
-that matters: shipping wheels is only worth anything if a user with no toolchain
-gets the fast implementation.
+Run this against an installed dead-band to confirm the *compiled* path is the
+one in use. CI runs it inside a container with no compiler, which is the
+property that matters: shipping wheels is only worth anything if a user with no
+toolchain gets the fast implementation.
 
     python scripts/smoke_wheel.py
 
-Exits non-zero with a readable message if the compiled extension is missing or the
-filter returns the wrong result. Kept as a file rather than an inline `python -c`
-in the workflow, because quoting a multi-line script through YAML and then through
-`docker run` is how the first version of this check broke.
+Exits non-zero with a readable message if the compiled extension is missing or
+the filter returns the wrong result. Kept as a file rather than an inline
+`python -c` in the workflow, because quoting a multi-line script through YAML
+and then through `docker run` is how the first version of this check broke.
 """
 
 import datetime as dt
