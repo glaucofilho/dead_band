@@ -99,12 +99,8 @@ jobs:
       # release before 1.2.0, when only an sdist was published.
       - name: Install the wheel in a container with no build tools
         run: |
-          docker run --rm -v "$PWD/wheelhouse:/w:ro" python:3.13-slim bash -eux -c '
-            ! command -v gcc
-            pip install --no-index --no-cache-dir /w/*.whl
-            python -c "import dead_band, datetime as dt
-            assert dead_band.CYTHON_AVAILABLE, \"compiled extension missing\"
-            data = [(0.0, dt.datetime(2020,1,1)), (0.5, dt.datetime(2020,1,1,0,0,1)), (50.0, dt.datetime(2020,1,1,0,0,2))]
-            print(\"filtered:\", dead_band.apply_deadband(data, 10, 30))
-            print(\"no toolchain needed, compiled path active\")"
-          '
+          docker run --rm \
+            -v "$PWD/wheelhouse:/w:ro" \
+            -v "$PWD/scripts/smoke_wheel.py:/smoke_wheel.py:ro" \
+            python:3.13-slim \
+            bash -eux -c '! command -v gcc && pip install --quiet --no-index --no-cache-dir /w/*.whl && python /smoke_wheel.py'
