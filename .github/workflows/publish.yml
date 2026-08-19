@@ -17,8 +17,14 @@ name: Publish Python Package to PyPI
 on:
   release:
     types: [published]
-  # Allows a dry run of the whole matrix without publishing anything.
   workflow_dispatch:
+    inputs:
+      publish:
+        description: >-
+          Upload to PyPI. Leave unchecked for a build-only dry run of the whole
+          matrix.
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -112,19 +118,53 @@ jobs:
     name: Publish to PyPI
     needs: [build_wheels, build_sdist]
     runs-on: ubuntu-latest
-    # Only a real release publishes. A workflow_dispatch run builds the whole
-    # matrix and stops, which is how to test this pipeline without burning a
-    # version number on PyPI.
-    if: github.event_name == 'release'
+    # A release always publishes. A manual run publishes only when explicitly
+    # asked, so the default `workflow_dispatch` remains a safe dry run of the
+    # whole matrix.
+    if: github.event_name == 'release' || inputs.publish
     steps:
       - uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6
         with:
           path: dist
           merge-multiple: true
 
-      - name: List what is about to be published
-        run: ls -lh dist
-
-      - uses: pypa/gh-action-pypi-publish@6733eb7d741f0b11ec6a39b58540dab7590f9b7d # v1.14.0
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
         with:
-          password: ${{ secrets.PYPI_API_TOKEN }}
+          python-version: '3.12'
+
+      # twine rather than pypa/gh-action-pypi-publish.
+      #
+      # That action is a composite action that generates a Docker container
+      # action pointing at ghcr.io/pypa/gh-action-pypi-publish:${REF}, where REF
+      # is whatever you pinned it to. Images are published for release tags, not
+      # for arbitrary commits, so pinning it by commit SHA -- the thing every
+      # other action here does for supply-chain reasons -- makes it fail with
+      # `manifest unknown` before it does any work. That killed the v1.2_release
+      # attempt (run 32289625929) after all six wheel jobs had succeeded.
+      #
+      # The alternatives were to pin it by moving tag, or to not use it. twine is
+      # the tool it wraps, it is two lines, and it pulls no container. Note also
+      # that this project publishes with an API token rather than Trusted
+      # Publishing, so the action's PEP 740 attestations -- which require OIDC --
+      # were never going to be produced anyway.
+      - name: Install twine
+        run: pip install "twine>=7.0,<8"
+
+      - name: Show and validate what is about to be published
+        run: |
+          ls -lh dist
+          # Catches malformed metadata and a README that PyPI would refuse to
+          # render, before anything is uploaded and the version is spent.
+          twine check --strict dist/*
+
+      # --skip-existing makes a retry idempotent. If an upload dies partway
+      # through -- 36 files go up here -- PyPI keeps the ones that landed and
+      # rejects a re-upload of them with a 400, so without this a retry fails on
+      # files that are already correct. PyPI never allows overwriting an existing
+      # file, so this cannot mask a changed artifact; it only skips identical
+      # filenames.
+      - name: Upload to PyPI
+        env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
+        run: twine upload --skip-existing dist/*
